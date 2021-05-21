@@ -42,3 +42,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: UI
+    uniqueID: 3867861253
+    locked: 0
+  - name: Dirt
+    uniqueID: 2020509575
+    locked: 0
+  - name: Ground
+    uniqueID: 2720519737
+    locked: 0
