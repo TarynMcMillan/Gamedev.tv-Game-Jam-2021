@@ -35,5 +35,7 @@ public class PointsManager : MonoBehaviour
     void PrintPoints()
     {
         pointsText.text = numberOfPoints.ToString();
+        // todo make this into an instanatiated prefab
+        // todo add SFX
     }
 }
