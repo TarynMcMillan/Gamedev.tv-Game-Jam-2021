@@ -5,13 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class HouseStateManager : MonoBehaviour
 {
+    [SerializeField] GameObject creaturePrefab;
     private void Start()
     {
+        print(CreatureSpawner.creatures.Count);
 
         for (int i = 0; i < CreatureSpawner.creatures.Count; i++)
         {
-            print(CreatureSpawner.creatures.Count);
-            Instantiate(CreatureSpawner.creatures[1], transform.position, Quaternion.identity);
+            print("I am a creature");
+            Instantiate(creaturePrefab, transform.position, Quaternion.identity);
+            //Instantiate(CreatureSpawner.creatures[i], transform.position, Quaternion.identity);
         }
     }
 

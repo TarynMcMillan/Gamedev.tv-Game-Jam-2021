@@ -25,6 +25,7 @@ public class CreatureSpawner : MonoBehaviour
     public void InstantiateCreature()
     {
         creatureInstance = Instantiate(creaturePrefab, creatureSpawnPoint.position, Quaternion.identity);
+        creatureCopy = creatureInstance;
         creatures.Add(creatureCopy);
         // AddToCreatureCount(creatureInstance);
         // todo save the creatures so that when you exit scene and reload they are still there
