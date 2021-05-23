@@ -6,7 +6,7 @@ public class CreatureSpawner : MonoBehaviour
 {
     [SerializeField] GameObject creaturePrefab;
     [SerializeField] Transform creatureSpawnPoint;
-    static GameObject creatureInstance;
+    GameObject creatureInstance;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,7 @@ public class CreatureSpawner : MonoBehaviour
     public void InstantiateCreature()
     {
         creatureInstance = Instantiate(creaturePrefab, creatureSpawnPoint.position, Quaternion.identity);
+        DontDestroyOnLoad(creatureInstance);
         // todo save the creatures so that when you exit scene and reload they are still there
 ;    }
 }

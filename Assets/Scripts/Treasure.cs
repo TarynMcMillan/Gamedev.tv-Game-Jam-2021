@@ -7,6 +7,7 @@ public class Treasure : ScriptableObject
 {
     [SerializeField] float points;
     [SerializeField] string treasureName;
+    [SerializeField] SpriteRenderer sprite;
     [SerializeField] bool isJunk = true;
 
     public string GetName()
@@ -17,10 +18,14 @@ public class Treasure : ScriptableObject
     {
         return points;
     }
-    public bool GetIsJunk()
+    public bool IsJunk()
     {
         return isJunk; 
     }
 
+    public SpriteRenderer GetSprite()
+    {
+        return sprite;
+    }    
 
 }

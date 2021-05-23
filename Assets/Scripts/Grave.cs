@@ -8,6 +8,7 @@ public class Grave : MonoBehaviour
     [SerializeField] AudioClip shovelSFX;
     [SerializeField] Treasure[] item;
     [SerializeField] Slider slider;
+    string[] color = new string[] { "Red", "Blue", "Green", "Black", "Yellow", "Purple" };
     PointsManager pointsManager;
     Treasure selectedItem;
     Animator graveAnimator;
@@ -19,7 +20,7 @@ public class Grave : MonoBehaviour
     }
     public void DigGrave()
     {
-        PlayAnimation();
+        //PlayAnimation();
         GenerateItem();
         PlaySFX();
     }
@@ -34,13 +35,24 @@ public class Grave : MonoBehaviour
     private void GenerateItem()
     {
         var randomFactor = Random.Range(0, item.Length);
+        var randomColor = Random.Range(0, color.Length);
         selectedItem = item[randomFactor];
+        if (selectedItem.IsJunk())
+        {
+            print("The item is junk");
+        }
+        else
+        {
+            SpriteRenderer itemSprite = selectedItem.GetSprite();
+            itemSprite.color = new color[randomColor];
+            // TODO fix this
+        }
         pointsManager.CalculatePoints(selectedItem);
     }
-
+    /*
     private void PlayAnimation()
     {
         graveAnimator.SetTrigger("open");
     }
-
+    */
 }
