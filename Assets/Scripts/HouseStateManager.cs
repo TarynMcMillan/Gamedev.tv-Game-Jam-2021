@@ -14,36 +14,38 @@ public class HouseStateManager : MonoBehaviour
         {
             print("I am a creature");
             Instantiate(creaturePrefab, transform.position, Quaternion.identity);
-            //Instantiate(CreatureSpawner.creatures[i], transform.position, Quaternion.identity);
+           
         }
     }
 
 
 }
-  /*
-    public static HouseStateManager Instance
-    {
-        get;
-        set;
-    }
+/*
+//Instantiate(CreatureSpawner.creatures[i], transform.position, Quaternion.identity);    
 
-    void Awake()
-    {
-        DontDestroyOnLoad(transform.gameObject);
-        Instance = this;
-    }
+public static HouseStateManager Instance
+  {
+      get;
+      set;
+  }
 
-    void Start()
-    {
-        //Load first game scene (probably main menu)?
-    
-    }
+  void Awake()
+  {
+      DontDestroyOnLoad(transform.gameObject);
+      Instance = this;
+  }
 
-    // Data persisted between scenes
-    public int exp = 0;
-    public int armor = 0;
-    public int weapon = 0;
-    //...
+  void Start()
+  {
+      //Load first game scene (probably main menu)?
+
+  }
+
+  // Data persisted between scenes
+  public int exp = 0;
+  public int armor = 0;
+  public int weapon = 0;
+  //...
 }
 
-    */
+  */
