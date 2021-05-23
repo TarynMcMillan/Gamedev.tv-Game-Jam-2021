@@ -20,12 +20,12 @@ public class Grave : MonoBehaviour
     {
         pointsManager = slider.GetComponent<PointsManager>();
         graveAnimator = this.GetComponentInChildren<Animator>();
-        GenerateGraves();
+        // GenerateGraves();
     }
     public void DigGrave()
     {
         //PlayAnimation();
-        GenerateItem();
+        RevealItem();
         PlaySFX();
     }
 
@@ -41,6 +41,7 @@ public class Grave : MonoBehaviour
         foreach (GameObject grave in graves)
             {
             GameObject graveInstance = Instantiate(gravePrefab, transform.position, Quaternion.identity);
+            GenerateItem();
         }
     }
     private void GenerateItem()
@@ -52,6 +53,10 @@ public class Grave : MonoBehaviour
         pointsManager.CalculatePoints(selectedItem);
     }
 
+    private void RevealItem()
+    {
+        // do something
+    }
 }
 /*
 private void PlayAnimation()

@@ -61,9 +61,10 @@
     <Compile Include="Assets\Scripts\Grave.cs" />
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\MouseControl.cs" />
-    <Compile Include="Assets\Scripts\SplashScreen.cs" />
     <Compile Include="Assets\Scripts\CreatureSpawner.cs" />
     <Compile Include="Assets\Scripts\HouseStateManager.cs" />
+    <Compile Include="Assets\Scripts\SplashScreen.cs" />
+    <Compile Include="Assets\Scripts\StateManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Fonts\TextMesh Pro\Shaders\TMPro.cginc" />
