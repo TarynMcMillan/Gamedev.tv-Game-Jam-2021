@@ -17,7 +17,7 @@ public class Grave : MonoBehaviour
 
     public void DigGrave()
     {
-        //PlayAnimation();
+        PlayAnimation();
         RevealItem();
         PlaySFX();
     }
@@ -36,7 +36,7 @@ public class Grave : MonoBehaviour
 
     private void PlayAnimation()
     {
-        graveAnimator.SetTrigger("open");
+        graveAnimator.SetTrigger("dig grave");
     }
 
 }
