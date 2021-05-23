@@ -8,15 +8,19 @@ public class Grave : MonoBehaviour
     [SerializeField] AudioClip shovelSFX;
     [SerializeField] Treasure[] item;
     [SerializeField] Slider slider;
+    [SerializeField] GameObject gravePrefab;
     string[] color = new string[] { "Red", "Blue", "Green", "Black", "Yellow", "Purple" };
     PointsManager pointsManager;
     Treasure selectedItem;
     Animator graveAnimator;
+    GameObject[] graves;
+ 
 
     private void Start()
     {
         pointsManager = slider.GetComponent<PointsManager>();
         graveAnimator = this.GetComponentInChildren<Animator>();
+        GenerateGraves();
     }
     public void DigGrave()
     {
@@ -32,27 +36,33 @@ public class Grave : MonoBehaviour
         audio.Play();
     }
 
+    private void GenerateGraves()
+    {
+        foreach (GameObject grave in graves)
+            {
+            GameObject graveInstance = Instantiate(gravePrefab, transform.position, Quaternion.identity);
+        }
+    }
     private void GenerateItem()
     {
         var randomFactor = Random.Range(0, item.Length);
-        var randomColor = Random.Range(0, color.Length);
+        // AssignColor();
         selectedItem = item[randomFactor];
-        if (selectedItem.IsJunk())
-        {
-            print("The item is junk");
-        }
-        else
-        {
-            SpriteRenderer itemSprite = selectedItem.GetSprite();
-            itemSprite.color = new color[randomColor];
-            // TODO fix this
-        }
+        SpriteRenderer itemSprite = selectedItem.GetSprite();
         pointsManager.CalculatePoints(selectedItem);
     }
-    /*
-    private void PlayAnimation()
-    {
-        graveAnimator.SetTrigger("open");
-    }
-    */
+
 }
+/*
+private void PlayAnimation()
+{
+    graveAnimator.SetTrigger("open");
+}
+
+
+void AssignColor()
+{
+// var randomColorFactor = Random.Range(0, color.Length);
+// var randomColor = color[randomColorFactor];
+}
+*/
