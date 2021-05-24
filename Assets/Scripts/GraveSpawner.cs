@@ -18,7 +18,8 @@ public class GraveSpawner : MonoBehaviour
     Treasure selectedItem;
     Animator graveAnimator;
     GameObject graveInstance;
-   
+    bool isJunk;
+    public static GameObject itemCopy;
 
     private void Start()
     {
@@ -45,21 +46,31 @@ public class GraveSpawner : MonoBehaviour
         print(selectedItem);
         if(randomFactor == 0)
         {
+            isJunk = true;
             GameObject junkInstance = Instantiate(junkPrefab, graveInstance.transform.position, Quaternion.identity);
             junkInstance.transform.localScale = new Vector3(1, 1, 1);
             junkInstance.transform.SetParent(graveInstance.transform, false);
+            itemCopy = junkInstance;
+            // graveInstance.GetComponentInChildren<ParticleSystem>().Play();
         }
         else if (randomFactor == 1)
         {
+            isJunk = false;
             GameObject treasureInstance = Instantiate(treasurePrefab, graveInstance.transform.position, Quaternion.identity);
             treasureInstance.transform.localScale = new Vector3(1, 1, 1);
             treasureInstance.transform.SetParent(graveInstance.transform, false);
+            itemCopy = treasureInstance;
         }
     }
 
     public Treasure GetItem()
     {
         return selectedItem;
+    }
+
+    public GameObject GetItemCopy()
+    {
+        return itemCopy;
     }
 
 }

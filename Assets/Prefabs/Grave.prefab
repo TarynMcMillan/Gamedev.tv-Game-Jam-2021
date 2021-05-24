@@ -315,6 +315,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shimmer
       objectReference: {fileID: 0}
+    - target: {fileID: 6912678893994512837, guid: 42d9ed37ee001704b9e769ca64357448, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6912678893994512890, guid: 42d9ed37ee001704b9e769ca64357448, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -357,6 +361,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6912678893994512890, guid: 42d9ed37ee001704b9e769ca64357448, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912678893994512891, guid: 42d9ed37ee001704b9e769ca64357448, type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

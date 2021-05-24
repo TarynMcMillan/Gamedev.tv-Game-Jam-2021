@@ -33,9 +33,12 @@ public class Grave : MonoBehaviour
 
     private void RevealItem()
     {
-        Treasure foundItem = FindObjectOfType<GraveSpawner>().GetItem();
+
+        //GetComponentInChildren<ItemSpawner>();
+        var foundItem = GetComponentInParent<GraveSpawner>().GetItemCopy();
+        print(foundItem.transform.position);
         print("The found item is " + foundItem);
-        SpriteRenderer itemSprite = foundItem.GetSprite();
+        //SpriteRenderer itemSprite = foundItem.GetSprite();
         // pointsManager.CalculatePoints(foundItem);
 
     }
