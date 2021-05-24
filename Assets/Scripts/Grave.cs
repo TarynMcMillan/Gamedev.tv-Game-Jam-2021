@@ -6,11 +6,9 @@ using UnityEngine.UI;
 public class Grave : MonoBehaviour
 {
     [SerializeField] AudioClip shovelSFX;
-    // [SerializeField] GraveSpawner graveSpawner;
-    // [SerializeField] PointsManager pointsManager;
-    Animator graveAnimator;
     [SerializeField] GameObject junkPrefab;
     [SerializeField] GameObject treasurePrefab;
+    Animator graveAnimator;
 
     void Start()
     {
@@ -39,6 +37,7 @@ public class Grave : MonoBehaviour
         {
             print("this is junk");
             GameObject junkInstance = Instantiate(junkPrefab, this.transform.position, Quaternion.identity);
+            Destroy(junkInstance, 2f);
             // junkInstance.transform.parent = this.transform;
             // junkInstance.transform.SetParent(this.transform, false);
             
@@ -47,18 +46,10 @@ public class Grave : MonoBehaviour
         {
             print("this is treasure");
             GameObject treasureInstance = Instantiate(treasurePrefab, this.transform.position, Quaternion.identity);
+            Destroy(treasureInstance, 2f);
             // treasureInstance.transform.parent = this.transform;
             // treasureInstance.transform.SetParent(this.transform, false);
         }
-        /*
-        //GetComponentInChildren<ItemSpawner>();
-        var foundItem = GetComponentInParent<GraveSpawner>().GetItemCopy();
-        print(foundItem.transform.position);
-        print("The found item is " + foundItem);
-        //SpriteRenderer itemSprite = foundItem.GetSprite();
-        // pointsManager.CalculatePoints(foundItem);
-        */
-
     }
 
     private void PlayAnimation()
@@ -67,3 +58,12 @@ public class Grave : MonoBehaviour
     }
 
 }
+
+  /*
+        //GetComponentInChildren<ItemSpawner>();
+        var foundItem = GetComponentInParent<GraveSpawner>().GetItemCopy();
+        print(foundItem.transform.position);
+        print("The found item is " + foundItem);
+        //SpriteRenderer itemSprite = foundItem.GetSprite();
+        // pointsManager.CalculatePoints(foundItem);
+        */

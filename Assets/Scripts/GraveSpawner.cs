@@ -14,19 +14,14 @@ public class GraveSpawner : MonoBehaviour
     [SerializeField] GameObject junkPrefab;
     [SerializeField] GameObject treasurePrefab;
     // string[] selectedColor = new string[] { "Red", "Blue", "Green", "Black", "Yellow", "Purple" };
-    PointsManager pointsManager;
     Treasure selectedItem;
-    Animator graveAnimator;
     GameObject graveInstance;
     bool isJunk;
 
     private void Start()
     {
-        pointsManager = slider.GetComponent<PointsManager>();
         GenerateGraves();
-        print(selectedItem);
     }
-
 
     private void GenerateGraves()
     {
@@ -60,7 +55,6 @@ public class GraveSpawner : MonoBehaviour
             GameObject treasureInstance = Instantiate(treasurePrefab, graveInstance.transform.position, Quaternion.identity);
             treasureInstance.transform.localScale = new Vector3(1, 1, 1);
             treasureInstance.transform.SetParent(graveInstance.transform, false);
-            //itemCopy = treasureInstance;
         }
     }
 
