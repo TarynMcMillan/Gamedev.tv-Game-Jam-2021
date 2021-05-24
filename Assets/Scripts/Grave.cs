@@ -38,12 +38,17 @@ public class Grave : MonoBehaviour
         if (gameObject.transform.Find("Junk(Clone)")!= null)
         {
             print("this is junk");
-            GameObject junkInstance = Instantiate(junkPrefab, transform.position, Quaternion.identity);
+            GameObject junkInstance = Instantiate(junkPrefab, this.transform.position, Quaternion.identity);
+            // junkInstance.transform.parent = this.transform;
+            // junkInstance.transform.SetParent(this.transform, false);
+            
         }
         else
         {
             print("this is treasure");
-            GameObject treasureInstance = Instantiate(treasurePrefab, transform.position, Quaternion.identity);
+            GameObject treasureInstance = Instantiate(treasurePrefab, this.transform.position, Quaternion.identity);
+            // treasureInstance.transform.parent = this.transform;
+            // treasureInstance.transform.SetParent(this.transform, false);
         }
         /*
         //GetComponentInChildren<ItemSpawner>();

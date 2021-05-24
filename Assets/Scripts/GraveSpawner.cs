@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GraveSpawner : MonoBehaviour
 {
-    
+
     [SerializeField] Treasure[] item;
     [SerializeField] Slider slider;
     [SerializeField] GameObject gravePrefab;
@@ -19,7 +19,6 @@ public class GraveSpawner : MonoBehaviour
     Animator graveAnimator;
     GameObject graveInstance;
     bool isJunk;
-    public static GameObject itemCopy;
 
     private void Start()
     {
@@ -27,12 +26,12 @@ public class GraveSpawner : MonoBehaviour
         GenerateGraves();
         print(selectedItem);
     }
-    
+
 
     private void GenerateGraves()
     {
-        for(int i =0; i<dirtPiles.Length; i++)
-            {
+        for (int i = 0; i < dirtPiles.Length; i++)
+        {
             graveInstance = Instantiate(gravePrefab, dirtPiles[i].transform.position, Quaternion.identity) as GameObject;
             graveInstance.transform.SetParent(dirtPiles[i].transform, false);
             //graveInstance.transform.parent = dirtPiles[i].transform;
@@ -45,7 +44,8 @@ public class GraveSpawner : MonoBehaviour
         var randomFactor = Random.Range(0, item.Length);
         selectedItem = item[randomFactor];
         print(selectedItem);
-        if(randomFactor == 0)
+
+        if (randomFactor == 0)
         {
             isJunk = true;
             GameObject junkInstance = Instantiate(junkPrefab, graveInstance.transform.position, Quaternion.identity);
@@ -68,12 +68,6 @@ public class GraveSpawner : MonoBehaviour
     {
         return selectedItem;
     }
-
-    public GameObject GetItemCopy()
-    {
-        return itemCopy;
-    }
-
 }
 /*
 
