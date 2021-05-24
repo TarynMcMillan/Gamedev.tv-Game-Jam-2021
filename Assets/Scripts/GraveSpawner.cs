@@ -32,16 +32,18 @@ public class GraveSpawner : MonoBehaviour
             GameObject graveInstance = Instantiate(gravePrefab, dirtPiles[i].transform.position, Quaternion.identity) as GameObject;
             graveInstance.transform.parent = dirtPiles[i].transform;
             graveInstance.transform.localScale = new Vector3(1, 1, 1);
-            // GenerateItem();
+            //GenerateItem();
         }
     }
     private void GenerateItem()
     {
         var randomFactor = Random.Range(0, item.Length);
         selectedItem = item[randomFactor];
-        SpriteRenderer itemSprite = selectedItem.GetSprite();
-        pointsManager.CalculatePoints(selectedItem);
-        
+    }
+
+    public Treasure GetItem()
+    {
+        return selectedItem;
     }
 
 }

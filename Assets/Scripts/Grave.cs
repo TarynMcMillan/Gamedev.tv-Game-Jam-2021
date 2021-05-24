@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class Grave : MonoBehaviour
 {
     [SerializeField] AudioClip shovelSFX;
+    // [SerializeField] GraveSpawner graveSpawner;
+    // [SerializeField] PointsManager pointsManager;
     Animator graveAnimator;
 
     void Start()
@@ -18,7 +20,7 @@ public class Grave : MonoBehaviour
     public void DigGrave()
     {
         PlayAnimation();
-        RevealItem();
+        //RevealItem();
         PlaySFX();
     }
 
@@ -31,7 +33,11 @@ public class Grave : MonoBehaviour
 
     private void RevealItem()
     {
-        // do something
+        Treasure foundItem = FindObjectOfType<GraveSpawner>().GetItem();
+        print("The found item is " + foundItem);
+        SpriteRenderer itemSprite = foundItem.GetSprite();
+        // pointsManager.CalculatePoints(foundItem);
+
     }
 
     private void PlayAnimation()
