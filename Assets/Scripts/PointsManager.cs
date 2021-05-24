@@ -16,7 +16,7 @@ public class PointsManager : MonoBehaviour
     {
         slider = GetComponent<Slider>();
         slider.maxValue = maxNumber;
-        slider.value = maxNumber/2;
+        slider.value = maxNumber;
     }
 
     // Update is called once per frame

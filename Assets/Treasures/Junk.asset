@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f8fad8db9e0af4ab879bc9c11b98d6, type: 3}
   m_Name: Junk
   m_EditorClassIdentifier: 
-  points: -1
+  points: -2
   treasureName: Junk
+  sprite: {fileID: 0}
   isJunk: 1
