@@ -25,6 +25,7 @@ public class GraveSpawner : MonoBehaviour
     {
         pointsManager = slider.GetComponent<PointsManager>();
         GenerateGraves();
+        print(selectedItem);
     }
     
 
@@ -50,7 +51,7 @@ public class GraveSpawner : MonoBehaviour
             GameObject junkInstance = Instantiate(junkPrefab, graveInstance.transform.position, Quaternion.identity);
             junkInstance.transform.localScale = new Vector3(1, 1, 1);
             junkInstance.transform.SetParent(graveInstance.transform, false);
-            itemCopy = junkInstance;
+            //itemCopy = junkInstance;
             // graveInstance.GetComponentInChildren<ParticleSystem>().Play();
         }
         else if (randomFactor == 1)
@@ -59,7 +60,7 @@ public class GraveSpawner : MonoBehaviour
             GameObject treasureInstance = Instantiate(treasurePrefab, graveInstance.transform.position, Quaternion.identity);
             treasureInstance.transform.localScale = new Vector3(1, 1, 1);
             treasureInstance.transform.SetParent(graveInstance.transform, false);
-            itemCopy = treasureInstance;
+            //itemCopy = treasureInstance;
         }
     }
 

@@ -138,6 +138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shovelSFX: {fileID: 8300000, guid: df6cac498304ab74a9bac737c510495d, type: 3}
+  junkPrefab: {fileID: 4508122630174016567, guid: 4ef99079d15353e4d836aad59da55380, type: 3}
+  treasurePrefab: {fileID: 2670283288956218125, guid: 925e5308198342541a0a089092833ae1, type: 3}
 --- !u!82 &-5702917657880157318
 AudioSource:
   m_ObjectHideFlags: 0
