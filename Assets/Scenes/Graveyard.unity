@@ -4757,7 +4757,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdb786977c7b20642bc63cbaaaecca94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: []
+  item:
+  - {fileID: 11400000, guid: 5dd6491bd7db2744b9822ee6bf345eec, type: 2}
+  - {fileID: 11400000, guid: 4e4104e0059f3e74d9492e13a6d1abb2, type: 2}
   slider: {fileID: 1001613861}
   gravePrefab: {fileID: 8250778824753467254, guid: a6fd3371f602b5749a7e11b76274c04e, type: 3}
   dirtPiles:
@@ -4787,6 +4789,8 @@ MonoBehaviour:
   - {fileID: 1079935425}
   - {fileID: 1829685986}
   canvas: {fileID: 1576563503}
+  junkPrefab: {fileID: 2312018502618494093, guid: df5a344eeae80b84b89168f1d077dfb1, type: 3}
+  treasurePrefab: {fileID: 2312018502618494093, guid: 46546e45886e1be46a2fe3fead112168, type: 3}
 --- !u!1 &1651278923
 GameObject:
   m_ObjectHideFlags: 0

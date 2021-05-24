@@ -20,7 +20,7 @@ public class Grave : MonoBehaviour
     public void DigGrave()
     {
         PlayAnimation();
-        //RevealItem();
+        RevealItem();
         PlaySFX();
     }
 
