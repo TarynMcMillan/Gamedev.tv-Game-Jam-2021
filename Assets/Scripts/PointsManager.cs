@@ -30,7 +30,7 @@ public class PointsManager : MonoBehaviour
         numberOfPoints = item.GetPoints();
         print("The number of points is " + numberOfPoints);
         slider.value += numberOfPoints;
-        PrintPoints();
+        // PrintPoints();
     }
 
     void PrintPoints()

@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\HouseStateManager.cs" />
     <Compile Include="Assets\Scripts\SplashScreen.cs" />
     <Compile Include="Assets\Scripts\ItemSpawner.cs" />
+    <Compile Include="Assets\Flashlight.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Fonts\TextMesh Pro\Shaders\TMPro.cginc" />
