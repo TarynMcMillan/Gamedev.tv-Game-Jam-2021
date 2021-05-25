@@ -6,6 +6,7 @@ using TMPro;
 public class PileCounter : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI pilesText;
+    [SerializeField] LevelLoader levelLoader;
     float junkPiles;
     float treasurePiles;
     float pilesRemaining;
@@ -14,12 +15,16 @@ public class PileCounter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        levelLoader = levelLoader.GetComponent<LevelLoader>();
     }
 
     void Update()
     {
-       
+       if (pilesRemaining <= 0)
+        {
+            Time.timeScale = 0;
+            levelLoader.StartRoundCompleteSequence();
+        }
     }
 
     public void GeneratePileCounter(float piles)

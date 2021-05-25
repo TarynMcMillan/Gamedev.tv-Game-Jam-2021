@@ -58,18 +58,18 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Treasure.cs" />
     <Compile Include="Assets\Scripts\Seance.cs" />
+    <Compile Include="Assets\Scripts\PileCounter.cs" />
     <Compile Include="Assets\Scripts\PointsManager.cs" />
     <Compile Include="Assets\Scripts\GraveSpawner.cs" />
-    <Compile Include="Assets\Scripts\SceneLoader.cs" />
-    <Compile Include="Assets\Flashlight.cs" />
+    <Compile Include="Assets\Scripts\Flashlight.cs" />
     <Compile Include="Assets\Scripts\ItemSpawner.cs" />
     <Compile Include="Assets\Scripts\MouseControl.cs" />
     <Compile Include="Assets\Scripts\Grave.cs" />
     <Compile Include="Assets\Scripts\CreatureSpawner.cs" />
     <Compile Include="Assets\Scripts\HouseStateManager.cs" />
     <Compile Include="Assets\Scripts\SplashScreen.cs" />
-    <Compile Include="Assets\GameTimer.cs" />
-    <Compile Include="Assets\PileCounter.cs" />
+    <Compile Include="Assets\Scripts\GameTimer.cs" />
+    <Compile Include="Assets\Scripts\LevelLoader.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Fonts\TextMesh Pro\Shaders\TMPro.cginc" />

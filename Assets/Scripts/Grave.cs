@@ -10,6 +10,7 @@ public class Grave : MonoBehaviour
     [SerializeField] GameObject treasurePrefab;
     Animator graveAnimator;
     string revealedItem = null;
+    bool isEmpty = false;
 
     void Start()
     {
@@ -20,9 +21,16 @@ public class Grave : MonoBehaviour
 
     public void DigGrave()
     {
-        PlayAnimation();
-        RevealItem();
-        PlaySFX();
+        if (isEmpty == false)
+        {
+            PlayAnimation();
+            RevealItem();
+            PlaySFX();
+        }
+        else
+        {
+            print("This grave is empty.");
+        }
     }
 
     private void PlaySFX()
@@ -53,6 +61,7 @@ public class Grave : MonoBehaviour
             // treasureInstance.transform.parent = this.transform;
             // treasureInstance.transform.SetParent(this.transform, false);
         }
+        isEmpty = true;
         //FindObjectOfType<PointsManager>().CalculatePoints(revealedItem);
     }
 
