@@ -15,17 +15,19 @@ public class GraveSpawner : MonoBehaviour
     [SerializeField] GameObject treasurePrefab;
     [SerializeField] GameObject shimmerPrefab;
     [SerializeField] GameObject junkID;
+    [SerializeField] PileCounter pileCounter;
     // string[] selectedColor = new string[] { "Red", "Blue", "Green", "Black", "Yellow", "Purple" };
     Treasure selectedItem;
     GameObject graveInstance;
-    float numberofPiles = 0;
+    float numberOfPiles = 0;
 
     private void Start()
     {
+        pileCounter = pileCounter.GetComponent<PileCounter>();
         GenerateGraves();
     }
 
-    private void GenerateGraves()
+    private void GenerateGraves() // generate graves on dirt piles
     {
         for (int i = 0; i < dirtPiles.Length; i++)
         {
@@ -33,18 +35,10 @@ public class GraveSpawner : MonoBehaviour
             graveInstance.transform.SetParent(dirtPiles[i].transform, false);
             //graveInstance.transform.parent = dirtPiles[i].transform;
             graveInstance.transform.localScale = new Vector3(1, 1, 1);
-            float randomFactor = Random.Range(0, 100);
-            if (randomFactor <= 30)
-            {
-                GameObject shimmerInstance = Instantiate(shimmerPrefab, graveInstance.transform.position, Quaternion.identity);
-                //GameObject junkIDInstance = Instantiate(junkID);
-                numberofPiles++;
-                //junkIDInstance.transform.SetParent(graveInstance.transform, false);
-            }
             GenerateItem();
         }
     }
-    private void GenerateItem()
+    private void GenerateItem() // generate item (either treasure or junk) for each grave
     {
         var randomFactor = Random.Range(0, item.Length);
         selectedItem = item[randomFactor];
@@ -55,8 +49,11 @@ public class GraveSpawner : MonoBehaviour
             GameObject junkInstance = Instantiate(junkPrefab, graveInstance.transform.position, Quaternion.identity);
             junkInstance.transform.localScale = new Vector3(1, 1, 1);
             junkInstance.transform.SetParent(graveInstance.transform, false);
-            //itemCopy = junkInstance;
-            // graveInstance.GetComponentInChildren<ParticleSystem>().Play();
+            
+            GameObject shimmerInstance = Instantiate(shimmerPrefab, graveInstance.transform.position, Quaternion.identity);
+                
+            numberOfPiles++;
+            pileCounter.GeneratePileCounter(numberOfPiles);     
         }
         else if (randomFactor == 1)
         {
@@ -73,7 +70,7 @@ public class GraveSpawner : MonoBehaviour
 
     public float GetNumberofPiles()
     {
-        return numberofPiles;
+        return numberOfPiles;
     }
 
     public float GetDirtPiles()
@@ -90,4 +87,9 @@ void AssignColor()
 // var randomColor = color[randomColorFactor];
 itemSprite.color = Color.red;
 }
+
+//junkIDInstance.transform.SetParent(graveInstance.transform, false);
+            //itemCopy = junkInstance;
+            // graveInstance.GetComponentInChildren<ParticleSystem>().Play();
+//GameObject junkIDInstance = Instantiate(junkID);
 */

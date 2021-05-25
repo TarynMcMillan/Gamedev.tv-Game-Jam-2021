@@ -2839,6 +2839,7 @@ GameObject:
   m_Component:
   - component: {fileID: 734023830}
   - component: {fileID: 734023831}
+  - component: {fileID: 734023832}
   m_Layer: 5
   m_Name: Piles Remaining
   m_TagString: Untagged
@@ -2893,6 +2894,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &734023832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734023829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9d5fb3dbf917674f81e453acc3d2a6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pilesText: {fileID: 315944162}
 --- !u!1001 &755665519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5762,6 +5776,7 @@ MonoBehaviour:
   treasurePrefab: {fileID: 1649875755997928269, guid: 46546e45886e1be46a2fe3fead112168, type: 3}
   shimmerPrefab: {fileID: 6912678893994512837, guid: 42d9ed37ee001704b9e769ca64357448, type: 3}
   junkID: {fileID: 7831359577755938793, guid: 8ad32825bbdc6f148a16ee0f57f9204e, type: 3}
+  pileCounter: {fileID: 734023832}
 --- !u!1 &1651278923
 GameObject:
   m_ObjectHideFlags: 0
