@@ -6,8 +6,9 @@ using TMPro;
 public class PileCounter : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI pilesText;
+    [SerializeField] TextMeshProUGUI quoteText;
     [SerializeField] LevelLoader levelLoader;
-    float junkPiles;
+    string[] quotes = { "What a terrible night for a curse.", "This is not Castlevania." };
     float treasurePiles;
     float pilesRemaining;
    
@@ -20,11 +21,7 @@ public class PileCounter : MonoBehaviour
 
     void Update()
     {
-       if (pilesRemaining <= 0)
-        {
-            Time.timeScale = 0;
-            levelLoader.StartRoundCompleteSequence();
-        }
+       
     }
 
     public void GeneratePileCounter(float piles)
@@ -38,5 +35,11 @@ public class PileCounter : MonoBehaviour
         print("activating Find Treasure");
         pilesRemaining--;
         pilesText.text = pilesRemaining.ToString();
+        if (pilesRemaining <= 0)
+        {
+            levelLoader.StartRoundCompleteSequence();
+            int randomQuoteFactor = Random.Range(0, quotes.Length);
+            quoteText.text = quotes[randomQuoteFactor];
+        }
     }
 }

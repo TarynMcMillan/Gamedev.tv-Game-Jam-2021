@@ -16,7 +16,6 @@ public class GraveSpawner : MonoBehaviour
     [SerializeField] GameObject shimmerPrefab;
     [SerializeField] GameObject junkID;
     [SerializeField] PileCounter pileCounter;
-    // string[] selectedColor = new string[] { "Red", "Blue", "Green", "Black", "Yellow", "Purple" };
     Treasure selectedItem;
     GameObject graveInstance;
     float numberOfPiles = 0;
@@ -31,6 +30,7 @@ public class GraveSpawner : MonoBehaviour
     {
         for (int i = 0; i < dirtPiles.Length; i++)
         {
+            
             graveInstance = Instantiate(gravePrefab, dirtPiles[i].transform.position, Quaternion.identity) as GameObject;
             graveInstance.transform.SetParent(dirtPiles[i].transform, false);
             //graveInstance.transform.parent = dirtPiles[i].transform;
@@ -40,6 +40,7 @@ public class GraveSpawner : MonoBehaviour
     }
     private void GenerateItem() // generate item (either treasure or junk) for each grave
     {
+        // TODO make sure the prefab dots aren't visible
         var randomFactor = Random.Range(0, item.Length);
         selectedItem = item[randomFactor];
         print(selectedItem);
@@ -47,7 +48,7 @@ public class GraveSpawner : MonoBehaviour
         if (randomFactor == 0)
         {
             GameObject junkInstance = Instantiate(junkPrefab, graveInstance.transform.position, Quaternion.identity);
-            junkInstance.transform.localScale = new Vector3(1, 1, 1);
+            junkInstance.transform.localScale = new Vector3(1, 1, 1); // do I need this?
             junkInstance.transform.SetParent(graveInstance.transform, false);
             
             GameObject shimmerInstance = Instantiate(shimmerPrefab, graveInstance.transform.position, Quaternion.identity);

@@ -56,6 +56,7 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\LevelLoader.cs" />
     <Compile Include="Assets\Scripts\Treasure.cs" />
     <Compile Include="Assets\Scripts\Seance.cs" />
     <Compile Include="Assets\Scripts\PileCounter.cs" />
@@ -69,7 +70,7 @@
     <Compile Include="Assets\Scripts\HouseStateManager.cs" />
     <Compile Include="Assets\Scripts\SplashScreen.cs" />
     <Compile Include="Assets\Scripts\GameTimer.cs" />
-    <Compile Include="Assets\Scripts\LevelLoader.cs" />
+    <Compile Include="Assets\Scripts\MusicManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Fonts\TextMesh Pro\Shaders\TMPro.cginc" />
