@@ -14,10 +14,11 @@ public class GraveSpawner : MonoBehaviour
     [SerializeField] GameObject junkPrefab;
     [SerializeField] GameObject treasurePrefab;
     [SerializeField] GameObject shimmerPrefab;
+    [SerializeField] GameObject junkID;
     // string[] selectedColor = new string[] { "Red", "Blue", "Green", "Black", "Yellow", "Purple" };
     Treasure selectedItem;
     GameObject graveInstance;
-    bool isJunk;
+    float numberofPiles = 0;
 
     private void Start()
     {
@@ -36,7 +37,9 @@ public class GraveSpawner : MonoBehaviour
             if (randomFactor <= 30)
             {
                 GameObject shimmerInstance = Instantiate(shimmerPrefab, graveInstance.transform.position, Quaternion.identity);
-                // TODO Instantiate object identifying this grave as a shimmer grave
+                //GameObject junkIDInstance = Instantiate(junkID);
+                numberofPiles++;
+                //junkIDInstance.transform.SetParent(graveInstance.transform, false);
             }
             GenerateItem();
         }
@@ -49,7 +52,6 @@ public class GraveSpawner : MonoBehaviour
 
         if (randomFactor == 0)
         {
-            isJunk = true;
             GameObject junkInstance = Instantiate(junkPrefab, graveInstance.transform.position, Quaternion.identity);
             junkInstance.transform.localScale = new Vector3(1, 1, 1);
             junkInstance.transform.SetParent(graveInstance.transform, false);
@@ -58,7 +60,6 @@ public class GraveSpawner : MonoBehaviour
         }
         else if (randomFactor == 1)
         {
-            isJunk = false;
             GameObject treasureInstance = Instantiate(treasurePrefab, graveInstance.transform.position, Quaternion.identity);
             treasureInstance.transform.localScale = new Vector3(1, 1, 1);
             treasureInstance.transform.SetParent(graveInstance.transform, false);
@@ -68,6 +69,16 @@ public class GraveSpawner : MonoBehaviour
     public Treasure GetItem()
     {
         return selectedItem;
+    }
+
+    public float GetNumberofPiles()
+    {
+        return numberofPiles;
+    }
+
+    public float GetDirtPiles()
+    {
+        return dirtPiles.Length;
     }
 }
 /*

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameTimer : MonoBehaviour
-{
+{ 
     [Tooltip("Time in seconds")]
     [SerializeField] float levelTime = 10f;
     bool triggeredLevelFinished = false;
