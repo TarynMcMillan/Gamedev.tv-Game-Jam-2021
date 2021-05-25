@@ -3683,14 +3683,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1001613859}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b228698de8b7ee54f872ae7749905f29, type: 3}
+  m_Script: {fileID: 11500000, guid: 966f73f2275d73a4d87b0b54da3ae411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxNumber: 100
-  sliderHandle: {fileID: 252004398}
-  pointsPrefab: {fileID: 6663473952964111373, guid: eca10154f95d1ad4784ad75b414c494d, type: 3}
-  junkPoints: -2
-  treasurePoints: 3
+  levelTime: 60
 --- !u!1 &1068974005
 GameObject:
   m_ObjectHideFlags: 0
@@ -5561,6 +5557,7 @@ MonoBehaviour:
   canvas: {fileID: 1576563503}
   junkPrefab: {fileID: 1347869895541229800, guid: df5a344eeae80b84b89168f1d077dfb1, type: 3}
   treasurePrefab: {fileID: 1649875755997928269, guid: 46546e45886e1be46a2fe3fead112168, type: 3}
+  shimmerPrefab: {fileID: 6912678893994512837, guid: 42d9ed37ee001704b9e769ca64357448, type: 3}
 --- !u!1 &1651278923
 GameObject:
   m_ObjectHideFlags: 0

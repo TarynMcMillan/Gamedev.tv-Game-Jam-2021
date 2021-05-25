@@ -13,6 +13,7 @@ public class GraveSpawner : MonoBehaviour
     [SerializeField] Canvas canvas;
     [SerializeField] GameObject junkPrefab;
     [SerializeField] GameObject treasurePrefab;
+    [SerializeField] GameObject shimmerPrefab;
     // string[] selectedColor = new string[] { "Red", "Blue", "Green", "Black", "Yellow", "Purple" };
     Treasure selectedItem;
     GameObject graveInstance;
@@ -31,6 +32,12 @@ public class GraveSpawner : MonoBehaviour
             graveInstance.transform.SetParent(dirtPiles[i].transform, false);
             //graveInstance.transform.parent = dirtPiles[i].transform;
             graveInstance.transform.localScale = new Vector3(1, 1, 1);
+            float randomFactor = Random.Range(0, 100);
+            if (randomFactor <= 30)
+            {
+                GameObject shimmerInstance = Instantiate(shimmerPrefab, graveInstance.transform.position, Quaternion.identity);
+                // TODO Instantiate object identifying this grave as a shimmer grave
+            }
             GenerateItem();
         }
     }
