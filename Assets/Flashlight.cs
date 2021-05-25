@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
-    // Start is called before the first frame update
+    float cooldownTime = 10f;
+    float nextFireTime = 0f;
     void Start()
     {
         
@@ -13,9 +14,15 @@ public class Flashlight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Time.time >= nextFireTime)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                UseFlashLight();
+                nextFireTime = Time.time + cooldownTime;
+            }
+        }
     }
-
     public void UseFlashLight()
     {
         StartCoroutine(TurnOnFlashLight());

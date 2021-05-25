@@ -9,22 +9,17 @@ public class PileCounter : MonoBehaviour
     float junkPiles;
     float treasurePiles;
     float pilesRemaining;
+   
     
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        
-        print("There are " + junkPiles + "piles of Junk.");
-        
-        print("There are " + treasurePiles + "piles of Treasure.");
-    */
-        }
+       
+    }
 
-    // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
     public void GeneratePileCounter(float piles)
