@@ -9,6 +9,7 @@ public class Grave : MonoBehaviour
     [SerializeField] GameObject junkPrefab;
     [SerializeField] GameObject treasurePrefab;
     Animator graveAnimator;
+    string revealedItem = null;
 
     void Start()
     {
@@ -37,7 +38,7 @@ public class Grave : MonoBehaviour
         {
             print("this is junk");
             GameObject junkInstance = Instantiate(junkPrefab, this.transform.position, Quaternion.identity);
-            // todo CALCULATE POINTS
+            revealedItem = "Junk";
             Destroy(junkInstance, 2f);
             // junkInstance.transform.parent = this.transform;
             // junkInstance.transform.SetParent(this.transform, false);
@@ -47,11 +48,12 @@ public class Grave : MonoBehaviour
         {
             print("this is treasure");
             GameObject treasureInstance = Instantiate(treasurePrefab, this.transform.position, Quaternion.identity);
-            // todo CALCULATE POINTS
+            revealedItem = "Treasure";
             Destroy(treasureInstance, 2f);
             // treasureInstance.transform.parent = this.transform;
             // treasureInstance.transform.SetParent(this.transform, false);
         }
+        FindObjectOfType<PointsManager>().CalculatePoints(revealedItem);
     }
 
     private void PlayAnimation()

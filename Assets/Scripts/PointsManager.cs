@@ -9,14 +9,18 @@ public class PointsManager : MonoBehaviour
     // [SerializeField] TextMeshProUGUI pointsText;
     [SerializeField] GameObject sliderHandle;
     [SerializeField] GameObject pointsPrefab;
+    [SerializeField] float junkPoints;
+    [SerializeField] float treasurePoints;
     Slider slider;
     float numberOfPoints;
+    
+
     // Start is called before the first frame update
     void Start()
     {
         slider = GetComponent<Slider>();
         slider.maxValue = maxNumber;
-        slider.value = maxNumber;
+        slider.value = 0;
     }
 
     // Update is called once per frame
@@ -25,10 +29,18 @@ public class PointsManager : MonoBehaviour
         // pointsText.transform.position = sliderHandle.transform.position;
     }
 
-    public void CalculatePoints(Treasure item)
+    public void CalculatePoints(string item)
     {
-        numberOfPoints = item.GetPoints();
-        print("The number of points is " + numberOfPoints);
+        if (item == "Junk")
+        {
+            numberOfPoints = junkPoints;
+        }
+        else if (item == "Treasure")
+        {
+            numberOfPoints = treasurePoints;
+        }
+        // numberOfPoints = item.GetPoints();
+        // print("The number of points is " + numberOfPoints);
         slider.value += numberOfPoints;
         // PrintPoints();
     }

@@ -3191,9 +3191,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b228698de8b7ee54f872ae7749905f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxNumber: 10
+  maxNumber: 100
   sliderHandle: {fileID: 252004398}
   pointsPrefab: {fileID: 6663473952964111373, guid: eca10154f95d1ad4784ad75b414c494d, type: 3}
+  junkPoints: -2
+  treasurePoints: 3
 --- !u!1 &1068974005
 GameObject:
   m_ObjectHideFlags: 0
