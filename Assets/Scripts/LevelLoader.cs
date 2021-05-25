@@ -8,13 +8,14 @@ public class LevelLoader : MonoBehaviour
     public void StartRoundCompleteSequence()
     {
         this.gameObject.SetActive(true);
+        // todo make sure particle effects finish before time stops
     }
-    public void ReloadGame()
+    public void LoadGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("Graveyard");
         // todo add scene fade
     }
-
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("Splash Screen");

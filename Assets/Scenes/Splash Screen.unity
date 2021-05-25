@@ -123,59 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &104281424
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 104281426}
-  - component: {fileID: 104281425}
-  m_Layer: 5
-  m_Name: Cursor Controls
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &104281425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 104281424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7918ec507caea6f4796f39b867c62bd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cursorMappings:
-  - type: 0
-    texture: {fileID: 2800000, guid: e8ccc95faffa8ba4aaab5b6127571a5f, type: 3}
-    hotspot: {x: 0, y: 0}
-  - type: 1
-    texture: {fileID: 0}
-    hotspot: {x: 0, y: 0}
-  - type: 2
-    texture: {fileID: 0}
-    hotspot: {x: 0, y: 0}
---- !u!4 &104281426
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 104281424}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &140273688
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,7 +435,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 170241159}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 631356468}
+        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
+        m_MethodName: LoadGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &252428300
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,8 +610,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 631356467}
-  - component: {fileID: 631356468}
   - component: {fileID: 631356469}
+  - component: {fileID: 631356468}
   m_Layer: 5
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -690,14 +649,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 631356466}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdb786977c7b20642bc63cbaaaecca94, type: 3}
+  m_Script: {fileID: 11500000, guid: 401527c5f3a4044449b042d1b0f348e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shovelSFX: {fileID: 8300000, guid: df6cac498304ab74a9bac737c510495d, type: 3}
-  item:
-  - {fileID: 11400000, guid: 5dd6491bd7db2744b9822ee6bf345eec, type: 2}
-  - {fileID: 11400000, guid: 4e4104e0059f3e74d9492e13a6d1abb2, type: 2}
-  slider: {fileID: 0}
 --- !u!82 &631356469
 AudioSource:
   m_ObjectHideFlags: 0
@@ -995,7 +949,6 @@ GameObject:
   - component: {fileID: 1576563502}
   - component: {fileID: 1576563501}
   - component: {fileID: 1576563500}
-  - component: {fileID: 1576563505}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1093,18 +1046,6 @@ RectTransform:
   m_AnchoredPosition: {x: 5, y: 3}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1576563505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576563498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bddc3ebf8e198848a0c0f2b7aa3f585, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1651278923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,7 +1288,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1859940882
 GameObject:
@@ -1379,5 +1320,5 @@ Transform:
   - {fileID: 1651278925}
   - {fileID: 906316658}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

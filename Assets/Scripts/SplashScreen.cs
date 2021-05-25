@@ -7,15 +7,25 @@ public class SplashScreen : MonoBehaviour
 {
     [SerializeField] Light2D lantern;
     [SerializeField] float speed = 0.5f;
-    // Start is called before the first frame update
+    bool isLanternOn = false;
     void Start()
     {
-     
+        isLanternOn = true;
+        print(isLanternOn);
+      // todo make sure lantern turns on when player returns to splash screen after one round
+      // todo make cursor into a shovel
     }
 
     // Update is called once per frame
     void Update()
     {
-        lantern.intensity += speed * Time.deltaTime;
+        if (isLanternOn)
+        {
+            lantern.intensity += speed * Time.deltaTime;
+        }
+        else
+        {
+            print("Lantern isn't working!");
+        }
     }
 }
