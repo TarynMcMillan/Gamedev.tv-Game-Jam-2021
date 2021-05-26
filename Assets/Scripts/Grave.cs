@@ -47,6 +47,7 @@ public class Grave : MonoBehaviour
             GameObject junkInstance = Instantiate(junkPrefab, this.transform.position, Quaternion.identity);
             revealedItem = "Junk";
             Destroy(junkInstance, 2f);
+            FindObjectOfType<FearManager>().IncreaseFear();
             // junkInstance.transform.parent = this.transform;
             // junkInstance.transform.SetParent(this.transform, false);
             
