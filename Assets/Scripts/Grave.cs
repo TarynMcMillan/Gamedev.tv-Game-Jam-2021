@@ -21,9 +21,6 @@ public class Grave : MonoBehaviour
 
     public void DigGrave()
     {
-        // todo make this cleaner or maybe deactivate cursor when lantern is on
-        if (FindObjectOfType<Lantern>().GettIsLanternOn() == false)
-        {
             if (isEmpty == false)
             {
                 PlayAnimation();
@@ -34,11 +31,6 @@ public class Grave : MonoBehaviour
             {
                 print("This grave is empty.");
             }
-        }
-        else 
-        {
-            print("Can't dig grave because lantern is on.");
-        }
     }
 
     private void PlaySFX()
