@@ -11,8 +11,8 @@ public class Lantern : MonoBehaviour
     void Start()
     {
         lanternAnimator = GetComponentInChildren<Animator>();
-        Button a = GetComponent<Button>();
-        a.onClick.AddListener(delegate () { UseLantern(); });
+        // Button a = GetComponent<Button>();
+        // a.onClick.AddListener(delegate () { UseLantern(); });
     }
 
     void Update()
@@ -23,7 +23,7 @@ public class Lantern : MonoBehaviour
     {
         if (Time.time >= nextFireTime)
         {
-
+            print("turning on lantern");
             StartCoroutine(TurnOnLantern());
             nextFireTime = Time.time + cooldownTime;
         }
@@ -36,6 +36,7 @@ public class Lantern : MonoBehaviour
 
     IEnumerator TurnOnLantern()
     {
+        lanternAnimator.SetTrigger("turnOn");
         ParticleSystem[] ps = FindObjectsOfType<ParticleSystem>();
         for (int i = 0; i < ps.Length; i++)
         {
