@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class Lantern : MonoBehaviour
 {
-    float cooldownTime = 10f;
+    [SerializeField] Light2D lanternLight;
+    float cooldownTime = 1f;
     float nextFireTime = 0f;
     Animator lanternAnimator;
+    bool isLanternOn;
+    float speed = 0.5f;
     void Start()
     {
         lanternAnimator = GetComponentInChildren<Animator>();
@@ -17,13 +21,20 @@ public class Lantern : MonoBehaviour
 
     void Update()
     {
-        
+        if (isLanternOn)
+        {
+            lanternLight.gameObject.SetActive(true);
+            lanternLight.intensity += speed * Time.deltaTime;
+        }
+        else
+        {
+            lanternLight.gameObject.SetActive(false);
+        }
     }
     public void UseLantern()
     {
         if (Time.time >= nextFireTime)
         {
-            print("turning on lantern");
             StartCoroutine(TurnOnLantern());
             nextFireTime = Time.time + cooldownTime;
         }
@@ -36,17 +47,25 @@ public class Lantern : MonoBehaviour
 
     IEnumerator TurnOnLantern()
     {
-        lanternAnimator.SetTrigger("turnOn");
+        lanternAnimator.SetBool("isLit", true);
+        isLanternOn = true;
         ParticleSystem[] ps = FindObjectsOfType<ParticleSystem>();
         for (int i = 0; i < ps.Length; i++)
         {
             ps[i].Play();
         }
         yield return new WaitForSeconds(2f);
+        lanternAnimator.SetBool("isLit", false);
+        isLanternOn = false;
         for (int i = 0; i < ps.Length; i++)
         {
             ps[i].Stop();
         }
 
+    }
+
+    public bool GettIsLanternOn()
+    {
+        return isLanternOn;
     }
 }
