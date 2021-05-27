@@ -7,6 +7,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class Lantern : MonoBehaviour
 {
     [SerializeField] Light2D lanternLight;
+    [SerializeField] AudioClip lanternSFX;
     float cooldownTime = 1f;
     float nextFireTime = 0f;
     Animator lanternAnimator;
@@ -32,6 +33,12 @@ public class Lantern : MonoBehaviour
         {
             lanternLight.gameObject.SetActive(false);
         }
+        if(nextFireTime == 0)
+        {
+            GetComponentInChildren<SpriteRenderer>().color = new Color(255, 255, 255, 116);
+            //lanternAnimator.SetTrigger("cooldownReady");
+            // add SFX for lantern
+        }
     }
     public void UseLantern()
     {
@@ -52,6 +59,7 @@ public class Lantern : MonoBehaviour
     {
         lanternAnimator.SetBool("isLit", true);
         isLanternOn = true;
+        PlaySFX();
         ps = FindObjectsOfType<ParticleSystem>();
         for (int i = 0; i < ps.Length; i++)
         {
@@ -65,7 +73,6 @@ public class Lantern : MonoBehaviour
     {
         Cursor.visible = true;
         lanternAnimator.SetBool("isLit", false);
-        // TODO add cooldown
         isLanternOn = false;
         isOnCooldown = true;
         ps = FindObjectsOfType<ParticleSystem>();
@@ -75,7 +82,12 @@ public class Lantern : MonoBehaviour
         }
 
     }
-
+    void PlaySFX()
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.clip = lanternSFX;
+        audioSource.Play();
+    }
     public bool GettIsLanternOn()
     {
         return isLanternOn;
