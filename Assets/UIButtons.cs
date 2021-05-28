@@ -35,5 +35,6 @@ public class UIButtons : MonoBehaviour
     void TriggerFade()
     {
         print("fading the scene");
+        FindObjectOfType<LevelLoader>().LoadGame();
     }    
 }
