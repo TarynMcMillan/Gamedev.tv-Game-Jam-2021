@@ -16,6 +16,13 @@ public class LevelLoader : MonoBehaviour
     }
     public void StartRoundCompleteSequence()
     {
+        
+        ParticleSystem[] ps = FindObjectsOfType<ParticleSystem>();
+        for (int i = 0; i < ps.Length; i++)
+        {
+            Destroy(ps[i]);
+        }
+        Time.timeScale = 0;
         roundCompletePanel.SetActive(true);
         audioSource.PlayOneShot(winSFX, 1f);
         // todo make sure particle effects finish before time stops
