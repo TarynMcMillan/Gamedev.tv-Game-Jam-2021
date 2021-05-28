@@ -7,6 +7,7 @@ public class SplashScreen : MonoBehaviour
 {
     [SerializeField] Light2D lantern;
     [SerializeField] float speed = 0.5f;
+    [SerializeField] float maxLanternIntensity = 1f;
     bool isLanternOn = false;
     void Start()
     {
@@ -21,7 +22,11 @@ public class SplashScreen : MonoBehaviour
     {
         if (isLanternOn)
         {
-            lantern.intensity += speed * Time.deltaTime;
+            while (lantern.intensity < maxLanternIntensity)
+            {
+                lantern.intensity += speed * Time.deltaTime;
+
+            }
         }
         else
         {
