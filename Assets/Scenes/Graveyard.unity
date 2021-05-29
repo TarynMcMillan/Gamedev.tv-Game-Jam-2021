@@ -1918,7 +1918,6 @@ GameObject:
   - component: {fileID: 367658011}
   - component: {fileID: 367658014}
   - component: {fileID: 367658013}
-  - component: {fileID: 367658012}
   m_Layer: 5
   m_Name: Help Panel
   m_TagString: Untagged
@@ -1949,22 +1948,6 @@ RectTransform:
   m_AnchoredPosition: {x: -874, y: -447}
   m_SizeDelta: {x: 1440.49, y: 801.89}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &367658012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 367658010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 401527c5f3a4044449b042d1b0f348e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  winSFX: {fileID: 0}
-  UISFX: {fileID: 0}
-  roundCompletePanel: {fileID: 0}
-  helpPanel: {fileID: 0}
 --- !u!114 &367658013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8972,7 +8955,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 367658012}
+      - m_Target: {fileID: 631356469}
         m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
         m_MethodName: CloseHelpPanel
         m_Mode: 1
