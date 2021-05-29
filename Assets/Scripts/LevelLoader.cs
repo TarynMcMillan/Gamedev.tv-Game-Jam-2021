@@ -24,8 +24,7 @@ public class LevelLoader : MonoBehaviour
         {
             ps[i].Stop();
         }
-        var gameTimer = FindObjectOfType<GameTimer>();
-        //stop timer
+        FindObjectOfType<GameTimer>().triggeredLevelFinished = true;
         //Time.timeScale = 0;
         roundCompletePanel.SetActive(true);
         audioSource.PlayOneShot(winSFX, 1f);
