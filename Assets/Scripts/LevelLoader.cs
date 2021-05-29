@@ -8,6 +8,7 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] AudioClip winSFX;
     [SerializeField] AudioClip UISFX;
     [SerializeField] GameObject roundCompletePanel;
+    [SerializeField] GameObject helpPanel;
     AudioSource audioSource;
 
     private void Start()
@@ -43,6 +44,15 @@ public class LevelLoader : MonoBehaviour
     public void OpenHelpPanel()
     {
         PlayUISFX();
+        helpPanel.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void CloseHelpPanel()
+    {
+        PlayUISFX();
+        helpPanel.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void PlayUISFX()
