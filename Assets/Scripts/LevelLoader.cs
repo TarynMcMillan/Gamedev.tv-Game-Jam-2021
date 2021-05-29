@@ -19,11 +19,14 @@ public class LevelLoader : MonoBehaviour
     {
         
         ParticleSystem[] ps = FindObjectsOfType<ParticleSystem>();
+        print(ps.Length);
         for (int i = 0; i < ps.Length; i++)
         {
-            Destroy(ps[i]);
+            ps[i].Stop();
         }
-        Time.timeScale = 0;
+        var gameTimer = FindObjectOfType<GameTimer>();
+        //stop timer
+        //Time.timeScale = 0;
         roundCompletePanel.SetActive(true);
         audioSource.PlayOneShot(winSFX, 1f);
         // todo make sure particle effects finish before time stops
