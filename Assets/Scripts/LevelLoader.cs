@@ -9,7 +9,9 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] AudioClip UISFX;
     [SerializeField] GameObject roundCompletePanel;
     [SerializeField] GameObject helpPanel;
+    [SerializeField] GameObject fadeCanvas;
     AudioSource audioSource;
+    Animator transition;
 
     private void Start()
     {
@@ -34,12 +36,20 @@ public class LevelLoader : MonoBehaviour
     {
         Time.timeScale = 1;
         PlayUISFX();
+        StartCoroutine(FadeScene());
         SceneManager.LoadScene("Graveyard");
-        // todo add scene fade
     }
+
+    IEnumerator FadeScene()
+    {
+        transition.SetTrigger("fadeOut");
+        yield return new WaitForSeconds(1f);
+    }
+
     public void LoadMainMenu()
     {
         PlayUISFX();
+        StartCoroutine(FadeScene());
         SceneManager.LoadScene("Splash Screen");
     }
 
