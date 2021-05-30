@@ -7,6 +7,7 @@ TagManager:
   - Grave
   - GameMusic
   - UI
+  - SceneFader
   layers:
   - Default
   - TransparentFX
@@ -43,4 +44,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 195886185
     locked: 0
