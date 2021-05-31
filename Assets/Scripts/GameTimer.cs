@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameTimer : MonoBehaviour
-{ 
+{
     [Tooltip("Time in seconds")]
-    [SerializeField] float levelTime = 10f;
+    [SerializeField] float levelTime;
     public bool triggeredLevelFinished = false;
 
     // Update is called once per frame
