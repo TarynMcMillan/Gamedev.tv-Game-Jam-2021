@@ -58,6 +58,12 @@ public class LevelLoader : MonoBehaviour
     {
         PlayUISFX();
         helpPanel.SetActive(true);
+        ParticleSystem[] ps = FindObjectsOfType<ParticleSystem>();
+        print(ps.Length);
+        for (int i = 0; i < ps.Length; i++)
+        {
+            ps[i].Stop();
+        }
         Time.timeScale = 0;
     }
 
