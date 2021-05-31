@@ -16,6 +16,7 @@ public class LevelLoader : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        transition = fadeCanvas.GetComponent<Animator>();
     }
     public void StartRoundCompleteSequence()
     {
