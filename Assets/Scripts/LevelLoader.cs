@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelLoader : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] GameObject fadeCanvas;
     AudioSource audioSource;
     Animator transition;
+    Button helpButton;
 
     private void Start()
     {
@@ -27,8 +29,7 @@ public class LevelLoader : MonoBehaviour
         {
             ps[i].Stop();
         }
-        FindObjectOfType<GameTimer>().triggeredLevelFinished = true;
-        //Time.timeScale = 0;
+        FindObjectOfType<GameTimer>().timerStopped = true;
         roundCompletePanel.SetActive(true);
         audioSource.PlayOneShot(winSFX, 1f);
         // todo make sure particle effects finish before time stops
@@ -58,13 +59,14 @@ public class LevelLoader : MonoBehaviour
     {
         PlayUISFX();
         helpPanel.SetActive(true);
+        helpButton = GetComponentInChildren<Button>();
+        helpButton.interactable = false;
         ParticleSystem[] ps = FindObjectsOfType<ParticleSystem>();
-        print(ps.Length);
         for (int i = 0; i < ps.Length; i++)
         {
             ps[i].Stop();
         }
-        Time.timeScale = 0;
+        FindObjectOfType<GameTimer>().timerStopped = true;
     }
 
     public void CloseHelpPanel()
@@ -72,6 +74,7 @@ public class LevelLoader : MonoBehaviour
         PlayUISFX();
         helpPanel.SetActive(false);
         Time.timeScale = 1;
+        helpButton.interactable = true;
     }
 
     public void PlayUISFX()
