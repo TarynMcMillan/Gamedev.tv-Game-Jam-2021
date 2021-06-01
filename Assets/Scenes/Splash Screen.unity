@@ -327,7 +327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &170241158
 RectTransform:
   m_ObjectHideFlags: 0
@@ -622,6 +622,7 @@ MonoBehaviour:
   roundCompletePanel: {fileID: 0}
   helpPanel: {fileID: 0}
   fadeCanvas: {fileID: 0}
+  helpButton: {fileID: 0}
 --- !u!82 &631356469
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1408,7 +1409,7 @@ PrefabInstance:
     - target: {fileID: 6161435632409949151, guid: 7f1b00a3932fcb746adca360577625d3, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: ae9d06c329d4c154586805e380ffe802, type: 3}
+      objectReference: {fileID: 8300000, guid: 9552cf5b2fa280b47a41913552c79bc5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f1b00a3932fcb746adca360577625d3, type: 3}
 --- !u!1 &1959956437

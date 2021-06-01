@@ -11,16 +11,16 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] GameObject roundCompletePanel;
     [SerializeField] GameObject helpPanel;
     [SerializeField] GameObject fadeCanvas;
+    [SerializeField] Button helpButton;
     AudioSource audioSource;
     Animator transition;
-    Button helpButton;
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         transition = fadeCanvas.GetComponent<Animator>();
     }
-    public void StartRoundCompleteSequence()
+    public void StartWinSequence()
     {
         
         ParticleSystem[] ps = FindObjectsOfType<ParticleSystem>();
@@ -34,10 +34,24 @@ public class LevelLoader : MonoBehaviour
         audioSource.PlayOneShot(winSFX, 1f);
         // todo make sure particle effects finish before time stops
     }
+
+    public void StartLoseSequence()
+    {
+        print("You lose!");
+        ParticleSystem[] ps = FindObjectsOfType<ParticleSystem>();
+        print(ps.Length);
+        for (int i = 0; i < ps.Length; i++)
+        {
+            ps[i].Stop();
+        }
+        FindObjectOfType<GameTimer>().timerStopped = true;
+        // open lose panel
+        // play lose sound
+    }
     public void LoadGame()
     {
         Time.timeScale = 1;
-        PlayUISFX();
+        // PlayUISFX();
         StartCoroutine(FadeScene());
         SceneManager.LoadScene("Graveyard");
     }
@@ -59,7 +73,6 @@ public class LevelLoader : MonoBehaviour
     {
         PlayUISFX();
         helpPanel.SetActive(true);
-        helpButton = GetComponentInChildren<Button>();
         helpButton.interactable = false;
         ParticleSystem[] ps = FindObjectsOfType<ParticleSystem>();
         for (int i = 0; i < ps.Length; i++)

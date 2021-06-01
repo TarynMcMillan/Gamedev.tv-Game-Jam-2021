@@ -37,7 +37,7 @@ public class PileCounter : MonoBehaviour
         pilesText.text = pilesRemaining.ToString();
         if (pilesRemaining <= 0)
         {
-            levelLoader.StartRoundCompleteSequence();
+            levelLoader.StartWinSequence();
             int randomQuoteFactor = Random.Range(0, quotes.Length);
             quoteText.text = quotes[randomQuoteFactor];
         }

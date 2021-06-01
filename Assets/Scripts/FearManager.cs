@@ -23,6 +23,7 @@ public class FearManager : MonoBehaviour
         if (fearLevel == maxFear)
         {
             isMaxFear = true;
+            FindObjectOfType<LevelLoader>().StartLoseSequence();
         }
     }
 
