@@ -48,7 +48,8 @@ public class LevelLoader : MonoBehaviour
         }
         FindObjectOfType<GameTimer>().timerStopped = true;
         losePanel.SetActive(true);
-        PlayLoseSFX();
+        audioSource.PlayOneShot(loseSFX, 1f);
+        //PlayLoseSFX();
     }
 
     void PlayLoseSFX()
