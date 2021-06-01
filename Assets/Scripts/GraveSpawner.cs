@@ -79,18 +79,3 @@ public class GraveSpawner : MonoBehaviour
         return dirtPiles.Length;
     }
 }
-/*
-
-
-void AssignColor()
-{
-// var randomColorFactor = Random.Range(0, color.Length);
-// var randomColor = color[randomColorFactor];
-itemSprite.color = Color.red;
-}
-
-//junkIDInstance.transform.SetParent(graveInstance.transform, false);
-            //itemCopy = junkInstance;
-            // graveInstance.GetComponentInChildren<ParticleSystem>().Play();
-//GameObject junkIDInstance = Instantiate(junkID);
-*/

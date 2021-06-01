@@ -8,22 +8,13 @@ public class PileCounter : MonoBehaviour
     [SerializeField] TextMeshProUGUI pilesText;
     [SerializeField] TextMeshProUGUI quoteText;
     [SerializeField] LevelLoader levelLoader;
-    string[] quotes = { "What a terrible night for a curse.", "This is not Castlevania." };
+    string[] quotes = { "The dawn breaks. You have survived the night." };
     float treasurePiles;
     float pilesRemaining;
-   
-    
-    // Start is called before the first frame update
     void Start()
     {
         levelLoader = levelLoader.GetComponent<LevelLoader>();
     }
-
-    void Update()
-    {
-       
-    }
-
     public void GeneratePileCounter(float piles)
     {
         treasurePiles = FindObjectOfType<GraveSpawner>().GetDirtPiles();

@@ -8,7 +8,9 @@ public class LevelLoader : MonoBehaviour
 {
     [SerializeField] AudioClip winSFX;
     [SerializeField] AudioClip UISFX;
+    [SerializeField] AudioClip loseSFX;
     [SerializeField] GameObject roundCompletePanel;
+    [SerializeField] GameObject losePanel;
     [SerializeField] GameObject helpPanel;
     [SerializeField] GameObject fadeCanvas;
     [SerializeField] Button helpButton;
@@ -31,13 +33,13 @@ public class LevelLoader : MonoBehaviour
         }
         FindObjectOfType<GameTimer>().timerStopped = true;
         roundCompletePanel.SetActive(true);
-        audioSource.PlayOneShot(winSFX, 1f);
-        // todo make sure particle effects finish before time stops
+        audioSource.clip = winSFX;
+        audioSource.Play();
+        //audioSource.PlayOneShot(winSFX, 1f);
     }
 
     public void StartLoseSequence()
     {
-        print("You lose!");
         ParticleSystem[] ps = FindObjectsOfType<ParticleSystem>();
         print(ps.Length);
         for (int i = 0; i < ps.Length; i++)
@@ -45,8 +47,16 @@ public class LevelLoader : MonoBehaviour
             ps[i].Stop();
         }
         FindObjectOfType<GameTimer>().timerStopped = true;
-        // open lose panel
-        // play lose sound
+        losePanel.SetActive(true);
+        PlayLoseSFX();
+    }
+
+    void PlayLoseSFX()
+    {
+        print("playing loseSFX");
+        audioSource.clip = loseSFX;
+        audioSource.Play();
+        //audioSource.PlayOneShot(loseSFX, 1f);
     }
     public void LoadGame()
     {
@@ -64,7 +74,7 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        PlayUISFX();
+        // PlayUISFX();
         StartCoroutine(FadeScene());
         SceneManager.LoadScene("Splash Screen");
     }

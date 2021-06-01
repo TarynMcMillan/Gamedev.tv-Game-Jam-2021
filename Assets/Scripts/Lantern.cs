@@ -37,7 +37,6 @@ public class Lantern : MonoBehaviour
         {
             GetComponentInChildren<SpriteRenderer>().color = new Color(255, 255, 255, 116);
             //lanternAnimator.SetTrigger("cooldownReady");
-            // add SFX for lantern
         }
     }
     public void UseLantern()

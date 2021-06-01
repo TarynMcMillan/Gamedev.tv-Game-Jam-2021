@@ -2,22 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class SplashScreen : MonoBehaviour
 {
     [SerializeField] Light2D lantern;
     [SerializeField] float speed = 0.5f;
     [SerializeField] float maxLanternIntensity = 4f;
+    [SerializeField] GameObject fadeCanvas;
     bool isLanternOn = false;
+    Animator transition;
+    
     void Start()
     {
         isLanternOn = true;
         print(isLanternOn);
-      // todo make sure lantern turns on when player returns to splash screen after one round
-      // todo make cursor into a shovel
+        transition = fadeCanvas.GetComponent<Animator>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (isLanternOn)
@@ -35,5 +36,19 @@ public class SplashScreen : MonoBehaviour
         {
             print("Lantern isn't working!");
         }
+    }
+
+    public void LoadGame()
+    {
+        Time.timeScale = 1;
+        // PlayUISFX();
+        StartCoroutine(FadeScene());
+        SceneManager.LoadScene("Graveyard");
+    }
+
+    IEnumerator FadeScene()
+    {
+        transition.SetTrigger("fadeOut");
+        yield return new WaitForSeconds(1f);
     }
 }
