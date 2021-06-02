@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class FearManager : MonoBehaviour
 {
     Slider slider;
-    float fearLevel = 0;
+    public float fearLevel = 0;
     float maxFear = 3;
     bool isMaxFear = false;
     void Start()

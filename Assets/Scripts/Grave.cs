@@ -46,13 +46,16 @@ public class Grave : MonoBehaviour
     {
         if (gameObject.transform.Find("Junk(Clone)")!= null)
         {
-            audioSource.PlayOneShot(skullSFX, 1f);
-            // todo check if fear is maxed out before spawning the instance
-            GameObject junkInstance = Instantiate(junkPrefab, this.transform.position, Quaternion.identity);
-            revealedItem = "Junk";
-            Destroy(junkInstance, 1f);
-            
             FindObjectOfType<FearManager>().IncreaseFear();
+            revealedItem = "Junk";
+            float fearStatus = FindObjectOfType<FearManager>().fearLevel;
+            if (fearStatus <=2)
+            {
+                audioSource.PlayOneShot(skullSFX, 1f);
+                // todo check if fear is maxed out before spawning the instance
+                GameObject junkInstance = Instantiate(junkPrefab, this.transform.position, Quaternion.identity);
+                Destroy(junkInstance, 1f);
+            }
             
         }
         else
