@@ -54,7 +54,6 @@ public class LevelLoader : MonoBehaviour
 
     void PlayLoseSFX()
     {
-        print("playing loseSFX");
         audioSource.clip = loseSFX;
         audioSource.Play();
         //audioSource.PlayOneShot(loseSFX, 1f);
@@ -63,7 +62,7 @@ public class LevelLoader : MonoBehaviour
     public void LoadGame()
     {
         Time.timeScale = 1;
-        // PlayUISFX();
+        FindObjectOfType<MusicManager>().PlayUISFX();
         StartCoroutine(FadeScene());
         SceneManager.LoadScene("Graveyard");
     }
@@ -76,7 +75,8 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        // PlayUISFX();
+        Time.timeScale = 1;
+        FindObjectOfType<MusicManager>().PlayUISFX();
         StartCoroutine(FadeScene());
         SceneManager.LoadScene("Splash Screen");
     }
