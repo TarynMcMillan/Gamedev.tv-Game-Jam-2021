@@ -45,6 +45,11 @@ public class SplashScreen : MonoBehaviour
         StartCoroutine(FadeScene());
         SceneManager.LoadScene("Graveyard");
     }
+    public void LoadOptions()
+    {
+        StartCoroutine(FadeScene());
+        SceneManager.LoadScene("Options");
+    }
 
     IEnumerator FadeScene()
     {

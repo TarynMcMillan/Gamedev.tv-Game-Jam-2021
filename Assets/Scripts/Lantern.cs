@@ -22,6 +22,7 @@ public class Lantern : MonoBehaviour
     void Start()
     {
         lanternAnimator = GetComponentInChildren<Animator>();
+        chargesLeft = chargesLeft - PlayerPrefsController.GetDifficulty();
         lanternText.text = "Charges Left: " + chargesLeft.ToString();
         // Button a = GetComponent<Button>();
         // a.onClick.AddListener(delegate () { UseLantern(); });

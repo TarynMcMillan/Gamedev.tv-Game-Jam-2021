@@ -942,7 +942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 966f73f2275d73a4d87b0b54da3ae411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTime: 20
+  levelTime: 30
   timerStopped: 0
   timerPaused: 0
   firstPress: 0

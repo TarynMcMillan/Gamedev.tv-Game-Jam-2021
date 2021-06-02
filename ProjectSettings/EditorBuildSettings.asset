@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Splash Screen.unity
     guid: 915b31c4824055742b139a15ea284465
   - enabled: 1
+    path: Assets/Scenes/Options.unity
+    guid: ea2c6879cde09a64d91b47016283b075
+  - enabled: 1
     path: Assets/Scenes/Graveyard.unity
     guid: 7dffcba6f3c06f54ab2583f4300420ba
   m_configObjects: {}

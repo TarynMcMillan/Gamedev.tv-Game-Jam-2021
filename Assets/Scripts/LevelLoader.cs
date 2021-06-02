@@ -59,6 +59,7 @@ public class LevelLoader : MonoBehaviour
         audioSource.Play();
         //audioSource.PlayOneShot(loseSFX, 1f);
     }
+
     public void LoadGame()
     {
         Time.timeScale = 1;
