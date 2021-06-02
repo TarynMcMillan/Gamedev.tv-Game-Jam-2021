@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Experimental.Rendering.Universal;
+using TMPro; 
 
 public class Lantern : MonoBehaviour
 {
     [SerializeField] Light2D lanternLight;
     [SerializeField] AudioClip lanternSFX;
+    [SerializeField] Button lanternButton;
+    [SerializeField] TextMeshProUGUI lanternText;
+    float chargesLeft = 3;
     float cooldownTime = 1f;
     float nextFireTime = 0f;
     Animator lanternAnimator;
@@ -18,6 +22,7 @@ public class Lantern : MonoBehaviour
     void Start()
     {
         lanternAnimator = GetComponentInChildren<Animator>();
+        lanternText.text = "Charges Left: " + chargesLeft.ToString();
         // Button a = GetComponent<Button>();
         // a.onClick.AddListener(delegate () { UseLantern(); });
     }
@@ -38,6 +43,10 @@ public class Lantern : MonoBehaviour
             GetComponentInChildren<SpriteRenderer>().color = new Color(255, 255, 255, 116);
             //lanternAnimator.SetTrigger("cooldownReady");
         }
+        if(chargesLeft <= 0)
+        {
+            lanternButton.interactable = false;
+        }
     }
     public void UseLantern()
     {
@@ -46,6 +55,8 @@ public class Lantern : MonoBehaviour
             StartCoroutine(TurnOnLantern());
             nextFireTime = Time.time + cooldownTime;
             Cursor.visible = false;
+            chargesLeft--;
+            lanternText.text = "Charges Left: " + chargesLeft.ToString();
         }
         else
         {
