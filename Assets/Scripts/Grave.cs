@@ -6,14 +6,17 @@ using UnityEngine.UI;
 public class Grave : MonoBehaviour
 {
     [SerializeField] AudioClip shovelSFX;
+    [SerializeField] AudioClip skullSFX;
     [SerializeField] GameObject junkPrefab;
     [SerializeField] GameObject treasurePrefab;
     Animator graveAnimator;
+    AudioSource audioSource;
     string revealedItem = null;
     bool isEmpty = false;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         graveAnimator = GetComponentInChildren<Animator>();
         Button b = GetComponent<Button>();
         b.onClick.AddListener(delegate () { DigGrave(); });
@@ -35,35 +38,30 @@ public class Grave : MonoBehaviour
 
     private void PlaySFX()
     {
-        AudioSource audio = GetComponent<AudioSource>();
-        audio.clip = shovelSFX;
-        audio.Play();
+        audioSource.clip = shovelSFX;
+        audioSource.Play();
     }
 
     private void RevealItem()
     {
         if (gameObject.transform.Find("Junk(Clone)")!= null)
         {
+            audioSource.PlayOneShot(skullSFX, 1f);
+            // todo check if fear is maxed out before spawning the instance
             GameObject junkInstance = Instantiate(junkPrefab, this.transform.position, Quaternion.identity);
             revealedItem = "Junk";
-            Destroy(junkInstance, 2f);
+            Destroy(junkInstance, 1f);
+            
             FindObjectOfType<FearManager>().IncreaseFear();
-            // junkInstance.transform.parent = this.transform;
-            // junkInstance.transform.SetParent(this.transform, false);
             
         }
         else
         {
             print("found treasure");
-            GameObject treasureInstance = Instantiate(treasurePrefab, this.transform.position, Quaternion.identity);
             FindObjectOfType<PileCounter>().FindTreasure();
             revealedItem = "Treasure";
-            Destroy(treasureInstance, 2f);
-            // treasureInstance.transform.parent = this.transform;
-            // treasureInstance.transform.SetParent(this.transform, false);
         }
         isEmpty = true;
-        //FindObjectOfType<PointsManager>().CalculatePoints(revealedItem);
     }
 
     private void PlayAnimation()
