@@ -85,6 +85,7 @@ public class LevelLoader : MonoBehaviour
         PlayUISFX();
         helpPanel.SetActive(true);
         helpButton.interactable = false;
+        Time.timeScale = 0;
         ParticleSystem[] ps = FindObjectsOfType<ParticleSystem>();
         for (int i = 0; i < ps.Length; i++)
         {
@@ -99,6 +100,7 @@ public class LevelLoader : MonoBehaviour
         helpPanel.SetActive(false);
         Time.timeScale = 1;
         helpButton.interactable = true;
+        FindObjectOfType<GameTimer>().timerStopped = false;
     }
 
     public void PlayUISFX()
