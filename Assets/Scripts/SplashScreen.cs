@@ -10,7 +10,6 @@ public class SplashScreen : MonoBehaviour
     [SerializeField] float speed = 0.5f;
     [SerializeField] float maxLanternIntensity = 4f;
     [SerializeField] GameObject fadeCanvas;
-    [SerializeField] AudioClip UISFX;
     bool isLanternOn = false;
     Animator transition;
     AudioSource audioSource;
@@ -44,26 +43,18 @@ public class SplashScreen : MonoBehaviour
     public void LoadGame()
     {
         Time.timeScale = 1;
-        // PlayUISFX();
         StartCoroutine(FadeScene());
         SceneManager.LoadScene("Graveyard");
     }
     public void LoadOptions()
     {
-        
+        FindObjectOfType<MusicManager>().PlayUISFX();
         StartCoroutine(FadeScene());
         SceneManager.LoadScene("Options");
     }
     IEnumerator FadeScene()
     {
-        // PlayUISFX();
         transition.SetTrigger("fadeOut");
         yield return new WaitForSeconds(1f);
     }
-
-    public void PlayUISFX()
-    {
-        audioSource.PlayOneShot(UISFX, 1f);
-    }
-
 }

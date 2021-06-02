@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
+    [SerializeField] AudioClip UISFX;
     GameObject[] musicObject;
     void Awake()
     {
@@ -33,6 +34,12 @@ public class MusicManager : MonoBehaviour
     {
         print("pausing music");
         GetComponent<AudioSource>().Pause();
+    }
+
+    public void PlayUISFX()
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(UISFX, 0.8f);
     }
 
 }

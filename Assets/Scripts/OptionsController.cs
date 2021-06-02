@@ -17,6 +17,7 @@ public class OptionsController : MonoBehaviour
     public void SaveAndExit()
     {
         PlayerPrefsController.SetDifficulty(difficultySlider.value);
+        FindObjectOfType<MusicManager>().PlayUISFX();
         splashScreenManager.LoadGame();
     }
 
