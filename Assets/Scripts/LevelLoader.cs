@@ -83,16 +83,16 @@ public class LevelLoader : MonoBehaviour
 
     public void OpenHelpPanel()
     {
-        PlayUISFX();
-        helpPanel.SetActive(true);
-        helpButton.interactable = false;
-        Time.timeScale = 0;
-        ParticleSystem[] ps = FindObjectsOfType<ParticleSystem>();
-        for (int i = 0; i < ps.Length; i++)
-        {
-            ps[i].Stop();
-        }
-        FindObjectOfType<GameTimer>().timerStopped = true;
+            PlayUISFX();
+            helpPanel.SetActive(true);
+            helpButton.interactable = false;
+            Time.timeScale = 0;
+            ParticleSystem[] ps = FindObjectsOfType<ParticleSystem>();
+            for (int i = 0; i < ps.Length; i++)
+            {
+                ps[i].Stop();
+            }
+            FindObjectOfType<GameTimer>().timerStopped = true;
     }
 
     public void CloseHelpPanel()

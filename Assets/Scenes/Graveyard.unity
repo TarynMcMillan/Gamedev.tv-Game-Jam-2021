@@ -6024,9 +6024,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'The chill overtakes you.
+  m_text: 'A Chill Overtakes you.
 
-'
+
+    You cannot escape the graveyard''s curse.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 89e7f47d1d2151a418220aa3b5140981, type: 2}
   m_sharedMaterial: {fileID: 8868560800807384381, guid: 89e7f47d1d2151a418220aa3b5140981, type: 2}
@@ -8989,7 +8990,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'The Sun''s rays break through the trees.
+  m_text: 'The sun''s rays break through the trees.
 
 
     You have survived the Night.'
@@ -9248,7 +9249,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Round Complete!
+  m_text: Success!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1ad8c5fcb749eeb4bab32c418a6dc513, type: 2}
   m_sharedMaterial: {fileID: -137273966001767365, guid: 1ad8c5fcb749eeb4bab32c418a6dc513, type: 2}

@@ -15,7 +15,7 @@ public class Lantern : MonoBehaviour
     float cooldownTime = 1f;
     float nextFireTime = 0f;
     Animator lanternAnimator;
-    bool isLanternOn = false;
+    public bool isLanternOn = false;
     bool isOnCooldown = false;
     float speed = 0.5f;
     ParticleSystem[] ps;
