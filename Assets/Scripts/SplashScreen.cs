@@ -10,11 +10,14 @@ public class SplashScreen : MonoBehaviour
     [SerializeField] float speed = 0.5f;
     [SerializeField] float maxLanternIntensity = 4f;
     [SerializeField] GameObject fadeCanvas;
+    [SerializeField] AudioClip UISFX;
     bool isLanternOn = false;
     Animator transition;
+    AudioSource audioSource;
     
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         isLanternOn = true;
         print(isLanternOn);
         transition = fadeCanvas.GetComponent<Animator>();
@@ -47,13 +50,20 @@ public class SplashScreen : MonoBehaviour
     }
     public void LoadOptions()
     {
+        
         StartCoroutine(FadeScene());
         SceneManager.LoadScene("Options");
     }
-
     IEnumerator FadeScene()
     {
+        // PlayUISFX();
         transition.SetTrigger("fadeOut");
         yield return new WaitForSeconds(1f);
     }
+
+    public void PlayUISFX()
+    {
+        audioSource.PlayOneShot(UISFX, 1f);
+    }
+
 }
