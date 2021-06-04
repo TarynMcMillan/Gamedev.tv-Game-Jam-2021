@@ -585,6 +585,7 @@ MonoBehaviour:
   lanternSFX: {fileID: 8300000, guid: 34d1cc9df01a7ee45bffaf821f0fc997, type: 3}
   lanternButton: {fileID: 1565361665}
   lanternText: {fileID: 358629499}
+  isLanternOn: 0
 --- !u!82 &86314915
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1018,9 +1019,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Use the cursor to dig up the dirt piles.\n\nIf you dig up a pile with
-    a ghost, you lose Fear Points.\n\nThe Lantern can help you see which piles to
-    avoid. \n\nFind all of the empty graves before the timer runs out."
+  m_text: "Use the cursor to dig up the dirt piles.\n\nIf you dig up a gold pile,
+    you lose Fear Points.\n\nThe Lantern can help you see which piles to avoid. \n\nFind
+    all of the empty graves before the timer runs out."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 89e7f47d1d2151a418220aa3b5140981, type: 2}
   m_sharedMaterial: {fileID: 8868560800807384381, guid: 89e7f47d1d2151a418220aa3b5140981, type: 2}
