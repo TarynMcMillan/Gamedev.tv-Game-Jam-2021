@@ -12,7 +12,7 @@ public class Grave : MonoBehaviour
     Animator graveAnimator;
     AudioSource audioSource;
     string revealedItem = null;
-    bool isEmpty = false;
+    public bool isEmpty = false;
 
     void Start()
     {
