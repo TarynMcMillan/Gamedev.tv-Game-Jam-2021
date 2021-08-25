@@ -60,7 +60,7 @@ public class Grave : MonoBehaviour
         }
         else
         {
-            print("found treasure");
+            // print("found treasure");
             FindObjectOfType<PileCounter>().FindTreasure();
             revealedItem = "Treasure";
         }

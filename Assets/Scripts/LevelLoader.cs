@@ -41,7 +41,7 @@ public class LevelLoader : MonoBehaviour
     public void StartLoseSequence()
     {
         ParticleSystem[] ps = FindObjectsOfType<ParticleSystem>();
-        print(ps.Length);
+        // print(ps.Length);
         for (int i = 0; i < ps.Length; i++)
         {
             ps[i].Stop();

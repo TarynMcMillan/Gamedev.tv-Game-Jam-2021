@@ -23,7 +23,7 @@ public class PileCounter : MonoBehaviour
     }
     public void FindTreasure()
     {
-        print("activating Find Treasure");
+        // print("activating Find Treasure");
         pilesRemaining--;
         pilesText.text = pilesRemaining.ToString();
         if (pilesRemaining <= 0)

@@ -18,7 +18,7 @@ public class FearManager : MonoBehaviour
         slider.value = fearLevel;
         if (fearLevel == maxFear && isMaxFear == false)
         {
-            print("fear condition");
+            // print("fear condition");
             FindObjectOfType<LevelLoader>().StartLoseSequence();
             isMaxFear = true;
         }
