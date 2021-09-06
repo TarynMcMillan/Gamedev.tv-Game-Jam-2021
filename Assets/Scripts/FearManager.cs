@@ -6,7 +6,7 @@ public class FearManager : MonoBehaviour
 {
     Slider slider;
     public float fearLevel = 0;
-    float maxFear = 3;
+    float maxFear = 10f;
     bool isMaxFear = false;
     void Start()
     {

@@ -55,7 +55,7 @@ public class Lantern : MonoBehaviour
         {
             StartCoroutine(TurnOnLantern());
             nextFireTime = Time.time + cooldownTime;
-            Cursor.visible = false;
+            // Cursor.visible = false;
             chargesLeft--;
             lanternText.text = "Charges Left: " + chargesLeft.ToString();
         }

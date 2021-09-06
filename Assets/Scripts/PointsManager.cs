@@ -14,8 +14,6 @@ public class PointsManager : MonoBehaviour
     Slider slider;
     float numberOfPoints;
     
-
-    // Start is called before the first frame update
     void Start()
     {
         slider = GetComponent<Slider>();
@@ -23,7 +21,6 @@ public class PointsManager : MonoBehaviour
         slider.value = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
         // pointsText.transform.position = sliderHandle.transform.position;

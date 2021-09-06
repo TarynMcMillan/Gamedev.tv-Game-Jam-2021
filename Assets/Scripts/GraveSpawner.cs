@@ -43,7 +43,7 @@ public class GraveSpawner : MonoBehaviour
         // TODO make sure the prefab dots aren't visible
         var randomFactor = Random.Range(0, item.Length);
         selectedItem = item[randomFactor];
-        print(selectedItem);
+        // print(selectedItem);
 
         if (randomFactor == 0)
         {

@@ -55,6 +55,7 @@ public class Grave : MonoBehaviour
                 // todo check if fear is maxed out before spawning the instance
                 GameObject junkInstance = Instantiate(junkPrefab, this.transform.position, Quaternion.identity);
                 Destroy(junkInstance, 1f);
+                // test
             }
             
         }

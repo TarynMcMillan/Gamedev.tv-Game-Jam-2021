@@ -60,8 +60,10 @@
     <Compile Include="Assets\Scripts\Treasure.cs" />
     <Compile Include="Assets\Scripts\PileCounter.cs" />
     <Compile Include="Assets\Scripts\PointsManager.cs" />
+    <Compile Include="Assets\Scripts\Filler.cs" />
     <Compile Include="Assets\Scripts\MusicManager.cs" />
     <Compile Include="Assets\Scripts\OptionsController.cs" />
+    <Compile Include="Assets\Scripts\Overworld.cs" />
     <Compile Include="Assets\Scripts\FearManager.cs" />
     <Compile Include="Assets\Scripts\GraveSpawner.cs" />
     <Compile Include="Assets\Scripts\Lantern.cs" />
@@ -75,7 +77,7 @@
     <Compile Include="Assets\Scripts\Grave.cs" />
     <Compile Include="Assets\Scripts\SplashScreen.cs" />
     <Compile Include="Assets\Scripts\GameTimer.cs" />
-    <Compile Include="Assets\Scripts\Filler.cs" />
+    <Compile Include="Assets\Scripts\CameraController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Fonts\TextMesh Pro\Shaders\TMPro.cginc" />

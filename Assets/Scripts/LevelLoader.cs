@@ -104,6 +104,11 @@ public class LevelLoader : MonoBehaviour
         FindObjectOfType<GameTimer>().timerStopped = false;
     }
 
+    public void LoadOverworld()
+    {
+        SceneManager.LoadScene("Overworld");
+    }
+
     public void PlayUISFX()
     {
         print("playing UI SFX");

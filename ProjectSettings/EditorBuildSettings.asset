@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Graveyard.unity
     guid: 7dffcba6f3c06f54ab2583f4300420ba
+  - enabled: 1
+    path: Assets/Scenes/Overworld.unity
+    guid: 855479dfd80cb3c4ab3fef438d296c25
   m_configObjects: {}

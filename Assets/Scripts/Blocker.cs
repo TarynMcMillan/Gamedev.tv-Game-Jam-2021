@@ -17,6 +17,8 @@ public class Blocker : MonoBehaviour
     Animator enemyAnimator;
     Animator selectedGraveAnimator;
     AudioSource audioSource;
+    EnemySpawner enemySpawner;
+
 
     private void Start()
     {
@@ -24,6 +26,7 @@ public class Blocker : MonoBehaviour
         enemyAnimator = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
         graves = FindObjectsOfType<Grave>();
+        enemySpawner = FindObjectOfType<EnemySpawner>();
         SelectGrave();
     }
 
@@ -60,6 +63,8 @@ public class Blocker : MonoBehaviour
             timerStarted += Time.deltaTime;
             if (timerStarted >= timerFinished)
             {
+                print("destroying blocker");
+                enemySpawner.spawningBlocker = true;
                 Destroy(gameObject);
             }
         }

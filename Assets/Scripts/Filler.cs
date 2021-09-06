@@ -10,6 +10,8 @@ public class Filler : MonoBehaviour
     float speed = 5f;
     bool isMoving = false;
     bool reachedTarget = false;
+    bool filledGrave = false;
+    bool fillingGrave = false;
     float timerStarted = 0f;
     float timerFinished = 3f;
     int randomFactor;
@@ -17,10 +19,12 @@ public class Filler : MonoBehaviour
     Animator enemyAnimator;
     Animator selectedGraveAnimator;
     AudioSource audioSource;
+    EnemySpawner enemySpawner;
 
     private void Start()
     {
         step = speed * Time.deltaTime;
+        enemySpawner = FindObjectOfType<EnemySpawner>();
         // enemyAnimator = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
         graves = FindObjectsOfType<Grave>();
@@ -38,7 +42,7 @@ public class Filler : MonoBehaviour
         {
             if ((selectedGrave.transform.Find("Junk(Clone)") == null))
             {
-                print("is moving is " + isMoving);
+                // print("is moving is " + isMoving);
                 isMoving = true;
             }
             else
@@ -58,23 +62,52 @@ public class Filler : MonoBehaviour
         {
             audioSource.Play();
             // enemyAnimator.SetTrigger("enemyFadeIn");
-            if (selectedGraveAnimator != null)
+            // if (selectedGraveAnimator != null)
+            // {
+            if (!filledGrave)
             {
-                selectedGraveAnimator.SetTrigger("fill grave");
-            }
-            timerStarted += Time.deltaTime;
-            if (timerStarted >= timerFinished)
-            {
-                Destroy(gameObject);
+                FillGrave();
             }
         }
     }
 
+    void FillGrave()
+    {
+        selectedGraveAnimator.SetTrigger("fill grave");
+           
+        FindObjectOfType<PileCounter>().AddPile();
+        filledGrave = true;
+        selectedGrave.GetComponent<Grave>().isEmpty = false;
+        print("This grave is empty? " + selectedGrave.GetComponent<Grave>().isEmpty);
+        if (selectedGrave.transform.Find("Junk(Clone)") != null)
+        {
+            print("respawned a Junk grave");
+        }
+        /*
+        timerStarted += Time.deltaTime;
+        print(timerStarted);
+        if (timerStarted >= timerFinished)
+
+        */
+         print("destroyed a filler");
+        
+        StartCoroutine(DestroyFiller());
+    }
+
+    IEnumerator DestroyFiller()
+    {
+        enemySpawner.spawningFiller = true;
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
+    }
+
     void SelectGrave()
     {
-        print("selecting grave");
+        // print("selecting grave");
         randomFactor = Random.Range(0, graves.Length);
         selectedGrave = graves[randomFactor];
         selectedGraveAnimator = selectedGrave.GetComponent<Animator>();
     }
+
+    
 }
