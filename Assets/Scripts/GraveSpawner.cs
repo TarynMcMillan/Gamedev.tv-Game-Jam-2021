@@ -16,6 +16,7 @@ public class GraveSpawner : MonoBehaviour
     [SerializeField] GameObject shimmerPrefab;
     [SerializeField] GameObject junkID;
     [SerializeField] PileCounter pileCounter;
+    [SerializeField] int quadrant;
     Treasure selectedItem;
     GameObject graveInstance;
     float numberOfPiles = 0;
@@ -23,6 +24,27 @@ public class GraveSpawner : MonoBehaviour
     private void Start()
     {
         pileCounter = pileCounter.GetComponent<PileCounter>();
+        switch (quadrant)
+        {
+            case 0:
+                dirtPiles = GameObject.FindGameObjectsWithTag("Grave");
+                break;
+
+            case 1:
+                dirtPiles = GameObject.FindGameObjectsWithTag("Grave1");
+                break;
+
+            case 2:
+                dirtPiles = GameObject.FindGameObjectsWithTag("Grave2");
+                break;
+
+            case 3:
+                dirtPiles = GameObject.FindGameObjectsWithTag("Grave3");
+                break;
+
+        }
+        dirtPiles = GameObject.FindGameObjectsWithTag("Grave");
+        print("There are this many dirt piles: " + dirtPiles.Length);
         GenerateGraves();
     }
 
@@ -30,7 +52,6 @@ public class GraveSpawner : MonoBehaviour
     {
         for (int i = 0; i < dirtPiles.Length; i++)
         {
-            
             graveInstance = Instantiate(gravePrefab, dirtPiles[i].transform.position, Quaternion.identity) as GameObject;
             graveInstance.transform.SetParent(dirtPiles[i].transform, false);
             //graveInstance.transform.parent = dirtPiles[i].transform;
