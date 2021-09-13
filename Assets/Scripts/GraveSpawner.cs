@@ -9,7 +9,6 @@ public class GraveSpawner : MonoBehaviour
     [SerializeField] Treasure[] item;
     [SerializeField] Slider slider;
     [SerializeField] GameObject gravePrefab;
-    [SerializeField] GameObject[] dirtPiles;
     [SerializeField] Canvas canvas;
     [SerializeField] GameObject junkPrefab;
     [SerializeField] GameObject treasurePrefab;
@@ -17,12 +16,28 @@ public class GraveSpawner : MonoBehaviour
     [SerializeField] GameObject junkID;
     [SerializeField] PileCounter pileCounter;
     [SerializeField] int quadrant;
+    GameObject[] dirtPiles;
     Treasure selectedItem;
     GameObject graveInstance;
     float numberOfPiles = 0;
 
+
+    private void Awake()
+    {
+        
+    }
     private void Start()
     {
+
+        dirtPiles = GameObject.FindGameObjectsWithTag("Grave");
+        print("There are this many dirt piles: " + dirtPiles.Length);
+
+        for (int i = 0; i < dirtPiles.Length; i++)
+        {
+            GenerateGraves(dirtPiles[i]);
+            //print(dirtPiles[i].name);
+        }
+        /*
         pileCounter = pileCounter.GetComponent<PileCounter>();
         switch (quadrant)
         {
@@ -43,21 +58,17 @@ public class GraveSpawner : MonoBehaviour
                 break;
 
         }
-        dirtPiles = GameObject.FindGameObjectsWithTag("Grave");
-        print("There are this many dirt piles: " + dirtPiles.Length);
-        GenerateGraves();
+        */
+
     }
 
-    private void GenerateGraves() // generate graves on dirt piles
+    private void GenerateGraves(GameObject pile) // generate graves on dirt piles
     {
-        for (int i = 0; i < dirtPiles.Length; i++)
-        {
-            graveInstance = Instantiate(gravePrefab, dirtPiles[i].transform.position, Quaternion.identity) as GameObject;
-            graveInstance.transform.SetParent(dirtPiles[i].transform, false);
+            graveInstance = Instantiate(gravePrefab, pile.transform.position, Quaternion.identity) as GameObject;
+            graveInstance.transform.SetParent(pile.transform, false);
             //graveInstance.transform.parent = dirtPiles[i].transform;
             graveInstance.transform.localScale = new Vector3(1, 1, 1);
             GenerateItem();
-        }
     }
     private void GenerateItem() // generate item (either treasure or junk) for each grave
     {
@@ -75,6 +86,7 @@ public class GraveSpawner : MonoBehaviour
             GameObject shimmerInstance = Instantiate(shimmerPrefab, graveInstance.transform.position, Quaternion.identity);
                 
             numberOfPiles++;
+            print("Generating a pile");
             pileCounter.GeneratePileCounter(numberOfPiles);     
         }
         else if (randomFactor == 1)

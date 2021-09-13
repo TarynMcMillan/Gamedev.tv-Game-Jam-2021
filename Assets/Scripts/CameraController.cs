@@ -21,15 +21,20 @@ public class CameraController : MonoBehaviour
         print("The camera position number is  " + number);
         if (Input.GetKeyDown("space"))
         {
-            NextPosition();
+           NextPosition();
         }
     }
 
     public void NextPosition()
     {
         Camera.main.transform.position = cameraPos[number].transform.position;
-        // transform.position = Vector3.MoveTowards(Camera.main.transform.position, cameraPos[number].position, step);
-        number++;
+
+        //Vector3 camPos = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y + (speed * Time.deltaTime), Camera.main.transform.position.z);
+
+       // Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, camPos, speed);
+
+    // transform.position = Vector3.MoveTowards(Camera.main.transform.position, cameraPos[number].position, step);
+    number++;
         if (number > 3)
         {
             number = 0;

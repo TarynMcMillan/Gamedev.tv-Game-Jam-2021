@@ -9,6 +9,7 @@ public class Grave : MonoBehaviour
     [SerializeField] AudioClip skullSFX;
     [SerializeField] GameObject junkPrefab;
     [SerializeField] GameObject treasurePrefab;
+    PileCounter pileCounter;
     Animator graveAnimator;
     AudioSource audioSource;
     string revealedItem = null;
@@ -16,6 +17,7 @@ public class Grave : MonoBehaviour
 
     void Start()
     {
+        pileCounter = FindObjectOfType<PileCounter>();
         audioSource = GetComponent<AudioSource>();
         graveAnimator = GetComponentInChildren<Animator>();
         Button b = GetComponent<Button>();
@@ -44,6 +46,7 @@ public class Grave : MonoBehaviour
 
     private void RevealItem()
     {
+        print("calling Reveal Item");
         if (gameObject.transform.Find("Junk(Clone)")!= null)
         {
             FindObjectOfType<FearManager>().IncreaseFear();
@@ -62,7 +65,7 @@ public class Grave : MonoBehaviour
         else
         {
             // print("found treasure");
-            FindObjectOfType<PileCounter>().FindTreasure();
+            pileCounter.FindTreasure();
             revealedItem = "Treasure";
         }
         isEmpty = true;
