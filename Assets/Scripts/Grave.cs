@@ -46,7 +46,7 @@ public class Grave : MonoBehaviour
 
     private void RevealItem()
     {
-        print("calling Reveal Item");
+        // print("calling Reveal Item");
         if (gameObject.transform.Find("Junk(Clone)")!= null)
         {
             FindObjectOfType<FearManager>().IncreaseFear();

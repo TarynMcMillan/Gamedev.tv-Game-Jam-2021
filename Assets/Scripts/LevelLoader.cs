@@ -14,6 +14,8 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] GameObject helpPanel;
     [SerializeField] GameObject fadeCanvas;
     [SerializeField] Button helpButton;
+    [SerializeField] GraveSpawner graveSpawner;
+    CameraController cameraController;
     AudioSource audioSource;
     Animator transition;
 
@@ -21,7 +23,22 @@ public class LevelLoader : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         transition = fadeCanvas.GetComponent<Animator>();
+        cameraController = Camera.main.GetComponent<CameraController>();
     }
+
+    private void Update()
+    {
+        // this.transform.position = Camera.main.transform.position;
+    }
+
+    public void StartNextQuadrant()
+    {
+        print("Starting the Next Quadrant sequence");
+        cameraController.NextPosition();
+        graveSpawner.quadrantNumber++;
+        graveSpawner.GenerateQuadrant();
+    }
+
     public void StartWinSequence()
     {
         

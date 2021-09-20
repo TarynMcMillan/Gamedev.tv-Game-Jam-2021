@@ -8,6 +8,8 @@ TagManager:
   - GameMusic
   - UI
   - SceneFader
+  - Spawn Point
+  - Quadrant
   layers:
   - Default
   - TransparentFX

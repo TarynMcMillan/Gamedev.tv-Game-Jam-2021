@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        print("The camera position number is  " + number);
+        // print("The camera position number is  " + number);
         if (Input.GetKeyDown("space"))
         {
            NextPosition();
@@ -34,7 +34,9 @@ public class CameraController : MonoBehaviour
        // Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, camPos, speed);
 
     // transform.position = Vector3.MoveTowards(Camera.main.transform.position, cameraPos[number].position, step);
-    number++;
+    
+        // Vector3.SmoothDamp
+        number++;
         if (number > 3)
         {
             number = 0;

@@ -7,39 +7,42 @@ public class PileCounter : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI pilesText;
     [SerializeField] LevelLoader levelLoader;
-  
+    GraveSpawner graveSpawner;
     float pilesRemaining;
     float treasurePiles;
+    float junkPiles;
     void Start()
     {
         levelLoader = levelLoader.GetComponent<LevelLoader>();
-        print(this.name);
-        
+        graveSpawner = FindObjectOfType<GraveSpawner>();
+        GeneratePileCounter();
     }
 
-    private void Update()
+    public void GeneratePileCounter()
     {
+        print("Generating Pile Counter");
+        treasurePiles = graveSpawner.GetTreasurePiles();
+        junkPiles = graveSpawner.GetJunkPiles();
+        pilesText.text = treasurePiles.ToString();
         
-    }
-    public void GeneratePileCounter(float piles)
-    {
-        treasurePiles = FindObjectOfType<GraveSpawner>().GetDirtPiles();
-        // print("There are " + treasurePiles + " piles remaining!");
-        pilesRemaining = treasurePiles - piles;
-        pilesText.text = pilesRemaining.ToString();
+        // print("There are " + junkPiles + " Junk piles remaining");
     }
     public void FindTreasure()
     {
-        pilesRemaining--;
-        pilesText.text = pilesRemaining.ToString();
-        print("Found a treasure! There are " + treasurePiles + " piles remaining!");
+        print("There are " + treasurePiles + " Treasure piles remaining");
+        treasurePiles--;
+        pilesText.text = treasurePiles.ToString();
+        // print("Found a treasure! There are " + treasurePiles + " piles remaining!");
         
-        /*
-        if (pilesRemaining <= 0)
+        if (treasurePiles <= 0)
+        {
+            levelLoader.StartNextQuadrant();
+            GeneratePileCounter();
+        }
+        if(graveSpawner.quadrantNumber == graveSpawner.maxQuadrant)
         {
             levelLoader.StartWinSequence();
         }
-        */
     }
 
     public void AddPile()
