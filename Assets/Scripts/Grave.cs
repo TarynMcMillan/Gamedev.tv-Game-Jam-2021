@@ -7,8 +7,9 @@ public class Grave : MonoBehaviour
 {
     [SerializeField] AudioClip shovelSFX;
     [SerializeField] AudioClip skullSFX;
-    [SerializeField] GameObject junkPrefab;
+    [SerializeField] GameObject skull;
     [SerializeField] GameObject treasurePrefab;
+    FearManager fearManager;
     PileCounter pileCounter;
     Animator graveAnimator;
     AudioSource audioSource;
@@ -17,6 +18,7 @@ public class Grave : MonoBehaviour
 
     void Start()
     {
+        fearManager = FindObjectOfType<FearManager>();
         pileCounter = FindObjectOfType<PileCounter>();
         audioSource = GetComponent<AudioSource>();
         graveAnimator = GetComponentInChildren<Animator>();
@@ -51,14 +53,9 @@ public class Grave : MonoBehaviour
         {
             FindObjectOfType<FearManager>().IncreaseFear();
             revealedItem = "Junk";
-            float fearStatus = FindObjectOfType<FearManager>().fearLevel;
-            if (fearStatus <=2)
+            if (fearManager.IsShowSkull())
             {
-                audioSource.PlayOneShot(skullSFX, 1f);
-                // todo check if fear is maxed out before spawning the instance
-                GameObject junkInstance = Instantiate(junkPrefab, this.transform.position, Quaternion.identity);
-                Destroy(junkInstance, 1f);
-                // test
+                ShowSkull();
             }
             
         }
@@ -69,6 +66,14 @@ public class Grave : MonoBehaviour
             revealedItem = "Treasure";
         }
         isEmpty = true;
+    }
+
+    private void ShowSkull()
+    {
+        audioSource.PlayOneShot(skullSFX, 1f);
+        // todo check if fear is maxed out before spawning the instance
+        GameObject junkInstance = Instantiate(skull, this.transform.position, Quaternion.identity);
+        Destroy(junkInstance, 1f);
     }
 
     private void PlayAnimation()

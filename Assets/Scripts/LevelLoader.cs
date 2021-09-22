@@ -15,6 +15,7 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] GameObject fadeCanvas;
     [SerializeField] Button helpButton;
     [SerializeField] GraveSpawner graveSpawner;
+    [SerializeField] Lantern lantern;
     CameraController cameraController;
     AudioSource audioSource;
     Animator transition;
@@ -37,6 +38,7 @@ public class LevelLoader : MonoBehaviour
         cameraController.NextPosition();
         graveSpawner.quadrantNumber++;
         graveSpawner.GenerateQuadrant();
+        lantern.ResetCharges();
     }
 
     public void StartWinSequence()

@@ -1331,6 +1331,7 @@ MonoBehaviour:
   junkID: {fileID: 7831359577755938793, guid: 8ad32825bbdc6f148a16ee0f57f9204e, type: 3}
   pileCounter: {fileID: 1513211465}
   quadrantNumber: 0
+  maxQuadrant: 0
 --- !u!1 &44488467
 GameObject:
   m_ObjectHideFlags: 0
@@ -1800,7 +1801,7 @@ RectTransform:
   - {fileID: 2132327513}
   - {fileID: 1945938704}
   m_Father: {fileID: 1576563504}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -2224,6 +2225,7 @@ MonoBehaviour:
   lanternSFX: {fileID: 8300000, guid: 34d1cc9df01a7ee45bffaf821f0fc997, type: 3}
   lanternButton: {fileID: 1565361665}
   lanternText: {fileID: 358629499}
+  maxCharges: 3
   isLanternOn: 0
 --- !u!82 &86314915
 AudioSource:
@@ -3836,7 +3838,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 176085322}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.25, y: 8.1, z: -10}
+  m_LocalPosition: {x: 17.25, y: 7.83, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2143757490}
@@ -5081,6 +5083,7 @@ MonoBehaviour:
   lanternSFX: {fileID: 8300000, guid: 34d1cc9df01a7ee45bffaf821f0fc997, type: 3}
   lanternButton: {fileID: 1535739356}
   lanternText: {fileID: 1337465329}
+  maxCharges: 3
   isLanternOn: 0
 --- !u!82 &263995764
 AudioSource:
@@ -10104,6 +10107,7 @@ MonoBehaviour:
   fadeCanvas: {fileID: 777038436}
   helpButton: {fileID: 2048695945}
   graveSpawner: {fileID: 0}
+  lantern: {fileID: 0}
 --- !u!114 &469834317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11273,18 +11277,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525122144}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 631356467}
   m_Father: {fileID: 1553123977}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 954.74, y: 532.17}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &525122146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11324,7 +11329,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &525122148
 Canvas:
   m_ObjectHideFlags: 0
@@ -11334,7 +11339,7 @@ Canvas:
   m_GameObject: {fileID: 525122144}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 2
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -11344,7 +11349,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!1001 &527117582
 PrefabInstance:
@@ -13328,6 +13333,7 @@ GameObject:
   - component: {fileID: 631356468}
   - component: {fileID: 631356471}
   - component: {fileID: 631356470}
+  - component: {fileID: 631356472}
   m_Layer: 8
   m_Name: UI Bar
   m_TagString: Untagged
@@ -13342,9 +13348,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631356466}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.650757, y: 0.650757, z: 0.650757}
+  m_LocalScale: {x: 0.0040672314, y: 0.0040672314, z: 0.650757}
   m_Children:
   - {fileID: 734023830}
   - {fileID: 1279718467}
@@ -13354,12 +13360,12 @@ RectTransform:
   - {fileID: 15568565}
   - {fileID: 1500356417}
   - {fileID: 1856063728}
-  m_Father: {fileID: 1576563504}
-  m_RootOrder: 2
+  m_Father: {fileID: 525122145}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -996.15, y: -941}
+  m_AnchoredPosition: {x: -955.0332, y: -1069.4812}
   m_SizeDelta: {x: 1868.1, y: 250.31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!82 &631356468
@@ -13479,6 +13485,7 @@ MonoBehaviour:
   fadeCanvas: {fileID: 788508047}
   helpButton: {fileID: 583668877}
   graveSpawner: {fileID: 763934740}
+  lantern: {fileID: 86314914}
 --- !u!114 &631356470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13517,6 +13524,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631356466}
   m_CullTransparentMesh: 1
+--- !u!212 &631356472
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631356466}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 50
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &635281341
 GameObject:
   m_ObjectHideFlags: 0
@@ -14672,6 +14730,7 @@ MonoBehaviour:
   junkID: {fileID: 7831359577755938793, guid: 8ad32825bbdc6f148a16ee0f57f9204e, type: 3}
   pileCounter: {fileID: 1826780007}
   quadrantNumber: 0
+  maxQuadrant: 0
 --- !u!1 &700404197
 GameObject:
   m_ObjectHideFlags: 0
@@ -15595,6 +15654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fearLevel: 0
+  maxFear: 50
 --- !u!114 &717163578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16486,6 +16546,7 @@ MonoBehaviour:
   junkID: {fileID: 7831359577755938793, guid: 8ad32825bbdc6f148a16ee0f57f9204e, type: 3}
   pileCounter: {fileID: 665557645}
   quadrantNumber: 0
+  maxQuadrant: 0
 --- !u!1001 &777038434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23915,6 +23976,7 @@ MonoBehaviour:
   lanternSFX: {fileID: 8300000, guid: 34d1cc9df01a7ee45bffaf821f0fc997, type: 3}
   lanternButton: {fileID: 424450611}
   lanternText: {fileID: 635281343}
+  maxCharges: 3
   isLanternOn: 0
 --- !u!82 &1076468890
 AudioSource:
@@ -26399,7 +26461,7 @@ RectTransform:
   - {fileID: 1809633200}
   - {fileID: 359433216}
   m_Father: {fileID: 1576563504}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -27082,6 +27144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fearLevel: 0
+  maxFear: 50
 --- !u!1001 &1283075873
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29924,6 +29987,7 @@ MonoBehaviour:
   lanternSFX: {fileID: 8300000, guid: 34d1cc9df01a7ee45bffaf821f0fc997, type: 3}
   lanternButton: {fileID: 1793800849}
   lanternText: {fileID: 604329304}
+  maxCharges: 3
   isLanternOn: 0
 --- !u!82 &1371433061
 AudioSource:
@@ -30137,7 +30201,7 @@ RectTransform:
   - {fileID: 469834315}
   - {fileID: 777038435}
   m_Father: {fileID: 1576563504}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -34073,7 +34137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1538155573}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.25, y: 12.63, z: -10}
+  m_LocalPosition: {x: 17.25, y: 14.69, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2143757490}
@@ -34599,6 +34663,7 @@ MonoBehaviour:
   - {fileID: 969845340}
   - {fileID: 1538155574}
   - {fileID: 176085323}
+  speed: 10
 --- !u!1 &1562152152
 GameObject:
   m_ObjectHideFlags: 0
@@ -35618,9 +35683,8 @@ RectTransform:
   m_Children:
   - {fileID: 252428301}
   - {fileID: 268358168}
-  - {fileID: 631356467}
-  - {fileID: 788508048}
   - {fileID: 1225090956}
+  - {fileID: 788508048}
   - {fileID: 1377830424}
   - {fileID: 66332272}
   m_Father: {fileID: 0}
@@ -39358,6 +39422,7 @@ MonoBehaviour:
   junkID: {fileID: 7831359577755938793, guid: 8ad32825bbdc6f148a16ee0f57f9204e, type: 3}
   pileCounter: {fileID: 665557645}
   quadrantNumber: 0
+  maxQuadrant: 0
 --- !u!1 &1749142232
 GameObject:
   m_ObjectHideFlags: 0
@@ -40355,6 +40420,7 @@ MonoBehaviour:
   fadeCanvas: {fileID: 359433217}
   helpButton: {fileID: 1658272220}
   graveSpawner: {fileID: 0}
+  lantern: {fileID: 0}
 --- !u!114 &1809633202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41581,6 +41647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fearLevel: 0
+  maxFear: 50
 --- !u!114 &1852792778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44849,6 +44916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fearLevel: 0
+  maxFear: 50
 --- !u!114 &1997507324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45094,7 +45162,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 30
+  m_SortingOrder: 200
   m_Sprite: {fileID: 6492003764208579526, guid: b8341b993635eb544969dabdfb4d6f2e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -47068,6 +47136,7 @@ MonoBehaviour:
   fadeCanvas: {fileID: 1945938705}
   helpButton: {fileID: 1033632575}
   graveSpawner: {fileID: 0}
+  lantern: {fileID: 0}
 --- !u!114 &2132327515
 MonoBehaviour:
   m_ObjectHideFlags: 0

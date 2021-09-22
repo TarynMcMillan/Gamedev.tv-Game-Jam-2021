@@ -15,36 +15,43 @@ public class GraveSpawner : MonoBehaviour
     [SerializeField] GameObject shimmerPrefab;
     [SerializeField] GameObject junkID;
     [SerializeField] PileCounter pileCounter;
+    LevelLoader levelLoader;
     GameObject[] quadrants;
     GameObject[] spawnPoints;
     Treasure selectedItem;
     GameObject graveInstance;
     float treasurePiles = 0f;
     float junkPiles = 0f;
-    public int quadrantNumber = 3;
-    public int maxQuadrant = 0;
+    public int quadrantNumber = 0;
+    int maxQuadrant = 3;
 
     private void Awake()
     {
         quadrants = GameObject.FindGameObjectsWithTag("Quadrant");
+        levelLoader = FindObjectOfType<LevelLoader>();
         GenerateQuadrant();
     }
 
     public void GenerateQuadrant()
     {
-        print("The quadrant number is " + quadrantNumber);
+        print(quadrantNumber);
         treasurePiles = 0f;
         junkPiles = 0f;
-        Transform[] children = quadrants[quadrantNumber].GetComponentsInChildren<Transform>();
-        foreach (Transform child in children)
+        if (quadrantNumber > maxQuadrant)
         {
-            if (child.GetComponent<SpawnPoint>())
+            levelLoader.StartWinSequence();
+        }
+        else
+        {
+            Transform[] children = quadrants[quadrantNumber].GetComponentsInChildren<Transform>();
+            foreach (Transform child in children)
             {
-                GenerateGraves(child.gameObject);
+                if (child.GetComponent<SpawnPoint>())
+                {
+                    GenerateGraves(child.gameObject);
+                }
             }
         }
-
-        // pileCounter.GeneratePileCounter();
     }
     private void GenerateGraves(GameObject spawnPoint) // generate graves on dirt piles
     {

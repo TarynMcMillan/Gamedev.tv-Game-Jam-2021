@@ -11,7 +11,8 @@ public class Lantern : MonoBehaviour
     [SerializeField] AudioClip lanternSFX;
     [SerializeField] Button lanternButton;
     [SerializeField] TextMeshProUGUI lanternText;
-    float chargesLeft = 3;
+    [SerializeField] float maxCharges = 3f;
+    float chargesLeft;
     float cooldownTime = 1f;
     float nextFireTime = 0f;
     Animator lanternAnimator;
@@ -22,7 +23,7 @@ public class Lantern : MonoBehaviour
     void Start()
     {
         lanternAnimator = GetComponentInChildren<Animator>();
-        chargesLeft = chargesLeft - PlayerPrefsController.GetDifficulty();
+        chargesLeft = maxCharges - PlayerPrefsController.GetDifficulty();
         lanternText.text = "Charges Left: " + chargesLeft.ToString();
         // Button a = GetComponent<Button>();
         // a.onClick.AddListener(delegate () { UseLantern(); });
@@ -49,6 +50,33 @@ public class Lantern : MonoBehaviour
             lanternButton.interactable = false;
         }
     }
+    void TurnOffLantern()
+    {
+        Cursor.visible = true;
+        lanternAnimator.SetBool("isLit", false);
+        isLanternOn = false;
+        isOnCooldown = true;
+        ps = FindObjectsOfType<ParticleSystem>();
+        for (int i = 0; i < ps.Length; i++)
+        {
+            ps[i].Stop();
+        }
+
+    }
+    void PlaySFX()
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.clip = lanternSFX;
+        audioSource.Play();
+    }
+
+    public void ResetCharges()
+    {
+        chargesLeft = maxCharges - PlayerPrefsController.GetDifficulty();
+        lanternText.text = "Charges Left: " + chargesLeft.ToString();
+        lanternButton.interactable = true;
+    }
+
     public void UseLantern()
     {
         if (Time.time >= nextFireTime)
@@ -78,26 +106,6 @@ public class Lantern : MonoBehaviour
         }
         yield return new WaitForSeconds(2f);
         TurnOffLantern();
-    }
-
-    void TurnOffLantern()
-    {
-        Cursor.visible = true;
-        lanternAnimator.SetBool("isLit", false);
-        isLanternOn = false;
-        isOnCooldown = true;
-        ps = FindObjectsOfType<ParticleSystem>();
-        for (int i = 0; i < ps.Length; i++)
-        {
-            ps[i].Stop();
-        }
-
-    }
-    void PlaySFX()
-    {
-        AudioSource audioSource = GetComponent<AudioSource>();
-        audioSource.clip = lanternSFX;
-        audioSource.Play();
     }
     public bool GettIsLanternOn()
     {

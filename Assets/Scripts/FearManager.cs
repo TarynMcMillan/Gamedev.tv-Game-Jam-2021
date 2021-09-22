@@ -6,7 +6,7 @@ public class FearManager : MonoBehaviour
 {
     Slider slider;
     public float fearLevel = 0;
-    float maxFear = 50f;
+    public float maxFear = 50f;
     bool isMaxFear = false;
     void Start()
     {
@@ -15,6 +15,7 @@ public class FearManager : MonoBehaviour
     }
     void Update()
     {
+        print("Is show skull? " + IsShowSkull());
         slider.value = fearLevel;
         if (fearLevel == maxFear && isMaxFear == false)
         {
@@ -27,5 +28,14 @@ public class FearManager : MonoBehaviour
     public void IncreaseFear()
     {
         fearLevel++;
+    }
+
+    public bool IsShowSkull()
+    {
+        if (fearLevel <= maxFear)
+        {
+            return true;
+        }
+        return false;
     }
 }

@@ -20,28 +20,24 @@ public class PileCounter : MonoBehaviour
 
     public void GeneratePileCounter()
     {
-        print("Generating Pile Counter");
+       
         treasurePiles = graveSpawner.GetTreasurePiles();
         junkPiles = graveSpawner.GetJunkPiles();
+
+        print("The number of treasure piles is " + treasurePiles);
+        print("The number of junk piles is " + junkPiles);
+
         pilesText.text = treasurePiles.ToString();
-        
-        // print("There are " + junkPiles + " Junk piles remaining");
     }
     public void FindTreasure()
     {
-        print("There are " + treasurePiles + " Treasure piles remaining");
         treasurePiles--;
         pilesText.text = treasurePiles.ToString();
-        // print("Found a treasure! There are " + treasurePiles + " piles remaining!");
         
         if (treasurePiles <= 0)
         {
             levelLoader.StartNextQuadrant();
             GeneratePileCounter();
-        }
-        if(graveSpawner.quadrantNumber == graveSpawner.maxQuadrant)
-        {
-            levelLoader.StartWinSequence();
         }
     }
 
